@@ -85,8 +85,7 @@ public class Game implements Serializable {
 
     @Override
     public String toString() {
-        return "Game{" + "theplayer=" + thePlayer 
-               + ", themap=" + theMap 
+        return "Game{ " + "themap=" + theMap
                + ", thestorehouse=" + theStorehouse 
                + ", currentPopulation=" + currentPopulation
                + ", acresOwned=" + acresOwned 

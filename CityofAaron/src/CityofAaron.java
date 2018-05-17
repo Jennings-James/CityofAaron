@@ -21,6 +21,11 @@ public class CityofAaron {
     public static void main(String[] args) {
   
         Game theGame = new Game();
+        Player newPlayer = new Player();
+            
+        newPlayer.setName("Fred");
+        String newPlayerName = newPlayer.getName();
+            
         theGame.setThePlayer(new Player());
         theGame.setTheMap(new Map());
         theGame.setTheStorehouse(new Storehouse());
@@ -29,7 +34,8 @@ public class CityofAaron {
         theGame.setWheatStorage(3500);
         theGame.setCurrentYear(2);
        
-        System.out.println(theGame.toString());
+        System.out.println("Player { player name= " 
+                + newPlayerName + "}" + " " + theGame.toString());
     }
     
 }

@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Player implements Serializable {
     
-    private String name = "Fred";//Fred is for testing 
+    private String name; //= "Fred";Fred is for testing 
     private ArrayList<Game> games = new ArrayList<Game>();
     
     public Player(){
