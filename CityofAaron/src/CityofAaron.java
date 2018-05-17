@@ -20,11 +20,11 @@ public class CityofAaron {
      */
     public static void main(String[] args) {
   
+        //code for testing the modle classes
         Game theGame = new Game();
         Player newPlayer = new Player();
             
         newPlayer.setName("Fred");
-        String newPlayerName = newPlayer.getName();
             
         theGame.setThePlayer(new Player());
         theGame.setTheMap(new Map());
@@ -34,8 +34,9 @@ public class CityofAaron {
         theGame.setWheatStorage(3500);
         theGame.setCurrentYear(2);
        
-        System.out.println("Player { player name= " 
-                + newPlayerName + "}" + " " + theGame.toString());
+        System.out.println(newPlayer.toString() + " " + theGame.toString());
+       
     }
+    
     
 }
