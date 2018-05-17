@@ -81,8 +81,7 @@ public class Game implements Serializable {
         this.currentYear = currentYear;
     }
     
-    
-    
+   
 
     @Override
     public String toString() {
