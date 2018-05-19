@@ -5,9 +5,14 @@
  */
 
 import byui.cit260.CityofAaron.model.Game;
+import byui.cit260.CityofAaron.model.ItemType;
 import byui.cit260.CityofAaron.model.Player;
 import byui.cit260.CityofAaron.model.Storehouse;
 import byui.cit260.CityofAaron.model.Map;
+import byui.cit260.CityofAaron.model.InventoryItem;
+import byui.cit260.CityofAaron.model.Animal;
+import byui.cit260.CityofAaron.model.Condition;
+import byui.cit260.CityofAaron.model.Provision;
 
 /**
  *
@@ -23,9 +28,20 @@ public class CityofAaron {
         //code for testing the modle classes
         Game theGame = new Game();
         Player newPlayer = new Player();
-            
         newPlayer.setName("Fred");
+        InventoryItem newItem = new InventoryItem();
+        newItem.setItemType(ItemType.itemList1);
+        newItem.setCondition(Condition.conList1);
+        newItem.setQuantity(25);
+        Animal theAnimal = new Animal();
+        theAnimal.setName("horse");
+        theAnimal.setAge(12);
+        Provision theProvision = new Provision();
+        theProvision.setName("corn");
+        theProvision.setPerishable(true);
             
+        
+        
         theGame.setThePlayer(new Player());
         theGame.setTheMap(new Map());
         theGame.setTheStorehouse(new Storehouse());
@@ -33,9 +49,14 @@ public class CityofAaron {
         theGame.setAcresOwned(1100);
         theGame.setWheatStorage(3500);
         theGame.setCurrentYear(2);
+        
        
-        System.out.println(newPlayer.toString() + " " + theGame.toString());
-       
+        System.out.println(newPlayer.toString() + " " 
+                + theGame.toString() + " " 
+                + newItem.toString() + " "
+                + theAnimal.toString() + " "
+                + theProvision.toString());
+        
     }
     
     

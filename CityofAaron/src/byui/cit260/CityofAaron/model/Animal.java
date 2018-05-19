@@ -10,25 +10,36 @@ import java.io.Serializable;
  *
  * @author jennings
  */
-public class Player implements Serializable {
+public class Animal {
     
-    private String name; //= "Fred";Fred is for testing 
+    private String name;
+    private int age;
     
-    public Player(){
+    
+    public Animal(){
         // Empty constructor for JavaBeans
     }
-    
-     public String getName() {
+
+    public String getName() {
         return name;
     }
     
     public void setName(String name) {
         this.name = name;
     }
-   
+    
+    public int getAge() {
+        return age;
+    }
+    
+    public void setAge(int age) {
+        this.age = age;
+    }
+    
     @Override
-    public String toString(){
-        return  "Player {player name= " + name 
+    public String toString() {
+        return "Animal { Name= " + name 
+                + " Age= " + age 
                 + "}";
     }
 }
