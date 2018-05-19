@@ -16,7 +16,7 @@ public class Location {
  private Number gridNumber;
  private visit  thevisit;
  private amount amountletf;
- private discription thediscription;
+ private description thedescription;
 
  public Location(){
  }
@@ -45,11 +45,11 @@ public class Location {
         this.amountletf = amountletf;
     }
 
-    public discription getThediscription() {
+    public description getThediscription() {
         return thediscription;
     }
 
-    public void setThediscription(discription thediscription) {
+    public void setThediscription(description thediscription) {
         this.thediscription = thediscription;
     }
 
@@ -59,7 +59,7 @@ public class Location {
                + "gridNumber=" + gridNumber 
                 + ", thevisit=" + thevisit 
                 + ", amountletf=" + amountletf 
-                + ", thediscription=" + thediscription 
+                + ", thedescription=" + thedescription 
                 + '}';
     }
  
