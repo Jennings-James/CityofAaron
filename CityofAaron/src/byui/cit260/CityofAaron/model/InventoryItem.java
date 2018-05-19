@@ -13,10 +13,15 @@ import java.io.Serializable;
  */
 public class InventoryItem implements Serializable {
     
+    public class Animal extends InventoryItem {
+    }
+    public class Provision extends InventoryItem {
+}
     private ItemType itemType;
     private int quantity;
     private Condition condition;
     
+   
     public InventoryItem () {
         //Empty constructor for JavaBeans
     }
