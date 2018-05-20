@@ -14,7 +14,7 @@ private description thedescription;
 private row rowcount;
 private column columncount;
 
-public Game{}{
+public Map (){
     
 }
     public description getThedescription() {
