@@ -5,49 +5,43 @@
  */
 package byui.cit260.CityofAaron.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author jennings
  */
-public class Map {
-private description thedescription;
-private row rowcount;
-private column columncount;
+public class Map implements Serializable {
+private String locaiton;
+private Point currentLocaiton;
+
 
 public Map (){
     
 }
-    public description getThedescription() {
-        return thedescription;
+
+    public String getLocaiton() {
+        return locaiton;
     }
 
-    public void setThedescription(description thedescription) {
-        this.thedescription = thedescription;
+    public void setLocaiton(String locaiton) {
+        this.locaiton = locaiton;
     }
 
-    public row getRowcount() {
-        return rowcount;
+    public Point getCurrentLocaiton() {
+        return currentLocaiton;
     }
 
-    public void setRowcount(row rowcount) {
-        this.rowcount = rowcount;
-    }
-
-    public column getColumncount() {
-        return columncount;
-    }
-
-    public void setColumncount(column columncount) {
-        this.columncount = columncount;
+    public void setCurrentLocaiton(Point currentLocaiton) {
+        this.currentLocaiton = currentLocaiton;
     }
 
     @Override
     public String toString() {
-    return "Map {" 
-    + "thedescription=" + thedescription 
-    + ", rowcount=" + rowcount 
-    + ", columncount=" + columncount 
-    +  '}';
+        return "Map{" 
+                + "locaiton=" + locaiton + ", currentLocaiton=" + currentLocaiton + '}';
     }
-   
+    
+    
+    
 }

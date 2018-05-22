@@ -5,63 +5,59 @@
  */
 package byui.cit260.CityofAaron.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author pesin
  */
-public class location {
+public class location implements Serializable {
   
- private Number gridNumber;
- private visit  thevisit;
- private amount amountletf;
- private description thedescription;  
+ private String name;
+ private String mapSymbol;
+ private String description;
+ private String gameTips;
 
  public location (){
+  
      
  }
-    public Number getGridNumber() {
-        return gridNumber;
+
+    public String getName() {
+        return name;
     }
 
-    public void setGridNumber(Number gridNumber) {
-        this.gridNumber = gridNumber;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public visit getThevisit() {
-        return thevisit;
+    public String getMapSymbol() {
+        return mapSymbol;
     }
 
-    public void setThevisit(visit thevisit) {
-        this.thevisit = thevisit;
+    public void setMapSymbol(String mapSymbol) {
+        this.mapSymbol = mapSymbol;
     }
 
-    public amount getAmountletf() {
-        return amountletf;
+    public String getDescription() {
+        return description;
     }
 
-    public void setAmountletf(amount amountletf) {
-        this.amountletf = amountletf;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public description getThedescription() {
-        return thedescription;
+    public String getGameTips() {
+        return gameTips;
     }
 
-    public void setThedescription(description thedescription) {
-        this.thedescription = thedescription;
+    public void setGameTips(String gameTips) {
+        this.gameTips = gameTips;
     }
 
     @Override
     public String toString() {
-        return "location{" 
-                + "gridNumber=" + gridNumber 
-                + ", thevisit=" + thevisit 
-                + ", amountletf=" + amountletf 
-                + ", thedescription=" + thedescription 
-                + '}';
-        
+        return "location{" + "name=" + name + ", mapSymbol=" + mapSymbol + ", description=" + description + ", gameTips=" + gameTips + '}';
     }
- 
     
- 
 }
