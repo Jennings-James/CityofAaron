@@ -30,8 +30,8 @@ public class CityofAaron {
         Player newPlayer = new Player();
         newPlayer.setName("Fred");
         InventoryItem newItem = new InventoryItem();
-        newItem.setItemType(ItemType.itemList1);
-        newItem.setCondition(Condition.conList1);
+        newItem.setItemType(ItemType.Tool);
+        newItem.setCondition(Condition.Good);
         newItem.setQuantity(25);
         Animal theAnimal = new Animal();
         theAnimal.setName("horse");
