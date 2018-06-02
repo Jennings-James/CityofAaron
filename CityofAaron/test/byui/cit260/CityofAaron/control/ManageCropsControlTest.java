@@ -78,4 +78,51 @@ public class ManageCropsControlTest {
         int result = ManageCropsControl.calcCropHarvest(110,100);
         assertEquals(-1, result);
     }
+
+    /*
+    *Start of James Jennings individual assignment.
+     * Test of plantCrops method, of class ManageCropsControl.
+     */
+    @Test
+    public void testPlantCrops() {
+        System.out.println("plantCrops");
+        int numAcres = 0;
+        int wheatStored = 0;
+        int landOwned = 0;
+        int expResult = 0;
+        int result = ManageCropsControl.plantCrops(numAcres, wheatStored, landOwned);
+        assertEquals(expResult, result);
+        
+    }
+    
+    @Test
+    public void testCase8() {
+        int result = ManageCropsControl.plantCrops(100,2000,200);
+        assertEquals(50, result);
+    }
+    @Test
+    public void testCase9() {
+        int result = ManageCropsControl.plantCrops(-100,2000,200);
+        assertEquals(-1, result);
+    }
+    /*@Test  This test will not run because 25.7 is not an int so it does not compile.
+    public void testCase10() {
+        int result = ManageCropsControl.plantCrops(25.7,1500,150);
+        assertEquals(-1, result);
+    }
+    */
+    @Test
+    public void testCase11() {
+        int result = ManageCropsControl.plantCrops(1000,2000,800);
+        assertEquals(-1, result);
+    }
+    @Test
+    public void testCase12() {
+        int result = ManageCropsControl.plantCrops(2000,300,2000);
+        assertEquals(-1, result);
+    }
+    
+    
+    
+    
 }
