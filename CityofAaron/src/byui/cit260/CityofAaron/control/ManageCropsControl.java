@@ -18,9 +18,15 @@ import java.util.Random;
  */
 public class ManageCropsControl {
     /*Random number generator outputs a random between the 2 ints passed to it*/
+    private static Random randomGenerator = new Random();
+    
+    protected static void setRandomGenerator(Random testRandom) {
+        randomGenerator = testRandom;
+    }
     private static int getRandomNumberInRange(int min, int max) {
-		Random r = new Random();
-		return r.nextInt((max - min) + 1) + min;
+		//Random r = new Random();
+		//return r.nextInt((max - min) + 1) + min;
+                return randomGenerator.nextInt((max - min) + 1) + min;
     }
     /*Calculation for crop harvest*/
     public static int calcCropHarvest (int tithing, int acresPlanted) {

@@ -5,7 +5,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
+import byui.cit260.CityofAaron.control.RandomMock;
 /**
  *
  * @author jennings
@@ -22,8 +22,9 @@ public class ManageCropsControlTest {
     @AfterClass
     public static void tearDownClass() {
     }
-
-
+    private static int getNeededRandomMockValue(int desiredRangeValue, int rangeMinimumValue) {
+        return desiredRangeValue - rangeMinimumValue;
+    }
     /**
      * Test of calcCropHarvest method, of class ManageCropsControl.
      */
@@ -39,30 +40,50 @@ public class ManageCropsControlTest {
     }
     @Test
     public void testCase1() {
+        int randomMockValue = getNeededRandomMockValue(3, 2);
+        RandomMock fakeRandom = new RandomMock(randomMockValue);
+        ManageCropsControl.setRandomGenerator(fakeRandom);
+        
         int result = ManageCropsControl.calcCropHarvest(10,100);
         assertEquals(300, result);
     }
     
     @Test
     public void testCase2() {
+        int randomMockValue = getNeededRandomMockValue(1, 1);
+        RandomMock fakeRandom = new RandomMock(randomMockValue);
+        ManageCropsControl.setRandomGenerator(fakeRandom);
+        
         int result = ManageCropsControl.calcCropHarvest(6,100);
         assertEquals(100, result);
     }
     
     @Test
     public void testCase3() {
+        int randomMockValue = getNeededRandomMockValue(4, 2);
+        RandomMock fakeRandom = new RandomMock(randomMockValue);
+        ManageCropsControl.setRandomGenerator(fakeRandom);
+        
         int result = ManageCropsControl.calcCropHarvest(15,100);
         assertEquals(400, result);
     }
     
     @Test
     public void testCase4() {
+        int randomMockValue = getNeededRandomMockValue(2, 1);
+        RandomMock fakeRandom = new RandomMock(randomMockValue);
+        ManageCropsControl.setRandomGenerator(fakeRandom);
+        
         int result = ManageCropsControl.calcCropHarvest(0,100);
         assertEquals(200, result);
     }
     
     @Test
     public void testCase5() {
+        int randomMockValue = getNeededRandomMockValue(5, 2);
+        RandomMock fakeRandom = new RandomMock(randomMockValue);
+        ManageCropsControl.setRandomGenerator(fakeRandom);
+        
         int result = ManageCropsControl.calcCropHarvest(100,100);
         assertEquals(500, result);
     }
