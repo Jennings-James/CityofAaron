@@ -71,7 +71,11 @@ public class ManageCropsControl {
         }
         else return numAcres / 2;
     }
-    public static int payTheTithesAndOfferings(int percentToPay, int wheatHarvested) {
-        
+    public static double payTheTithesAndOfferings(double percentToPay, double wheatHarvested) {
+        if (percentToPay < 0 || percentToPay > 100) {
+            return -1;
+        }
+        double tithe = (percentToPay / 100) * wheatHarvested;
+            return tithe;
     }
 }

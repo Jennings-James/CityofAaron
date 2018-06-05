@@ -142,8 +142,24 @@ public class ManageCropsControlTest {
         int result = ManageCropsControl.plantCrops(2000,300,2000);
         assertEquals(-1, result);
     }
+    @Test
+    public void testPayTithesAndOfferings() {
+        System.out.println("payTithesAndOfferings");
+        double percentToPay = 10;
+        double wheatHarvested = 2000;
+        int expResult = 200;
+        double result = ManageCropsControl.payTheTithesAndOfferings(percentToPay, wheatHarvested);
+        assertEquals(expResult, result, 0.01);
+    }
+    @Test
+    public void testCase20() {
+        double result = ManageCropsControl.payTheTithesAndOfferings(-10, 2000);
+        assertEquals(-1, result, 0.01);
+    }
     
-    
-    
-    
+    @Test
+    public void testCase21() {
+        double result = ManageCropsControl.payTheTithesAndOfferings(110, 2000);
+        assertEquals(-1, result, 0.01);
+    }
 }
