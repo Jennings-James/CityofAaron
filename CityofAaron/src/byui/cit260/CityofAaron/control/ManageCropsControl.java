@@ -71,4 +71,7 @@ public class ManageCropsControl {
         }
         else return numAcres / 2;
     }
+    public static int payTheTithesAndOfferings(int percentToPay, int wheatHarvested) {
+        
+    }
 }
