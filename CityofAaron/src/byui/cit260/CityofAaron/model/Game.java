@@ -20,6 +20,15 @@ public class Game implements Serializable {
     private int acresOwned;
     private int wheatStorage;
     private int currentYear;
+    private int currentGame;
+
+    public int getCurrentGame() {
+        return currentGame;
+    }
+
+    public void setCurrentGame(int currentGame) {
+        this.currentGame = currentGame;
+    }
     
     public Game(){
         // Empty constructor for JavaBeans
