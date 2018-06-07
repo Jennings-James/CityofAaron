@@ -23,15 +23,15 @@ public class StartProgramView {
      */
     public StartProgramView(){
         
-        message = "Welcome to the city of Aaron. You have been summoned here by "
-                + "the High Priest to assume your role as ruler of the city. "
-                + "Your responsibility is to buy and sell land, determine how "
-                + "much wheat to plant each year and how much to set aside to "
-                + "feed your people. In addition, it will be your job to pay an "
-                + "annual tithe on the wheat that is harvested. If you fail to "
-                + "provide enough wheat for the people, people will starve,  "
-                + "some people will die, and your workforce will be diminished. "
-                + "Plan carefully. And Oh, there is always a danger of rats "
+        message = "Welcome to the city of Aaron. You have been summoned here by\n"
+                + "the High Priest to assume your role as ruler of the city.\n"
+                + "Your responsibility is to buy and sell land, determine how\n"
+                + "much wheat to plant each year and how much to set aside to\n"
+                + "feed your people. In addition, it will be your job to pay an\n"
+                + "annual tithe on the wheat that is harvested. If you fail to\n"
+                + "provide enough wheat for the people, people will starve,\n"
+                + "some people will die, and your workforce will be diminished.\n"
+                + "Plan carefully. And Oh, there is always a danger of rats\n"
                 + "eating your wheat.";
 
                 

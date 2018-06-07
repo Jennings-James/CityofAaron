@@ -13,7 +13,7 @@ import byui.cit260.CityofAaron.model.InventoryItem;
 import byui.cit260.CityofAaron.model.Animal;
 import byui.cit260.CityofAaron.model.Condition;
 import byui.cit260.CityofAaron.model.Provision;
-
+import byui.cit260.CityofAaron.view.StartProgramView;
 /**
  *
  * @author jennings
@@ -24,6 +24,8 @@ public class CityofAaron {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayView();
   
         //code for testing the modle classes
         Game theGame = new Game();

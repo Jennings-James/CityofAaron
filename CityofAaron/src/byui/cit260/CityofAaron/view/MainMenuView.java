@@ -11,13 +11,13 @@ import java.util.Scanner;
  */
 public class MainMenuView {
     
-}
+
 
 /**
  *
  * @author kanderson
  */
-public class ViewTemplate {
+
     
     
     /**
