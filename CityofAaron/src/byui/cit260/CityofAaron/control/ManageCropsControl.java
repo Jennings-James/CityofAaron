@@ -123,7 +123,7 @@ public class ManageCropsControl {
         double tithe = (percentToPay / 100) * wheatHarvested;
             return tithe;
     }
-}
+
 
 /* Beau Kembles Individual assignment. 
 * calculateWheatEatenByRats
@@ -152,11 +152,11 @@ public double calculateWheatEatenByRats(double tithing, int eatenByRats, Game ga
             eatenByRats = (int) getRandomNumberInRange(0.03,0.07);
             }
         //If T&O < 8% random value between 6-10% of wheatStorage eaten by rats
-        if (tithing < 0.08) {
+        else if (tithing < 0.08) {
             eatenByRats = (int) getRandomNumberInRange(0.06,0.1);
         }
         //If T&O > 12% random value between 3-5% of wheatStorage eaten by rats 
-        if (tithing > 0.12) {
+        else if (tithing > 0.12) {
             eatenByRats = (int) getRandomNumberInRange(0.03,0.05);
         }
         //if random number > 30
