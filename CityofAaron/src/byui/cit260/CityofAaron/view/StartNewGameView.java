@@ -1,27 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author bkemble
  */
+
 package byui.cit260.CityofAaron.view;
+import  byui.cit260.CityofAaron.model.Player;
+import  byui.cit260.CityofAaron.model.Game;
+import  java.util.Scanner;
 
-/**
- *
- * @author jennings
- */
+
 public class StartNewGameView {
-    
-}
-
-package view;
-
-import java.util.Scanner;
-
-/**
- *
- * @author kanderson
- */
-public class ViewTemplate {
     
     
     /**
@@ -29,20 +17,15 @@ public class ViewTemplate {
      */
     protected String message;
     
+
     /**
      * Constructor
      */
-    public ViewTemplate(){
+    public StartNewGameView(){
         
-        message = "This is the message that is printed to the user by this view.\n"
-                + "You have three tasks:\n"
-                + "1 - Replace this message text with the text that is specific to your view.\n"
-                + "2 - Replace this list with menu options that are specific to your view.\n"
-                + "\n"
-                + "3 - Prompt the user for what they are expected to enter.\n";
-                
+     message = "A New Game Is About To Begin: \n";
+     
     }
-    
     
     /**
      * Get the user's input. Keep prompting them until they enter a value.
@@ -98,7 +81,7 @@ public class ViewTemplate {
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("Change this text to prompt the user for the input.");
+        inputs[0] = getUserInput("Enter your name: if you're not upto the challange press enter to return to the Main Menu:", true);
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         
@@ -113,17 +96,24 @@ public class ViewTemplate {
      * should exit and return to the previous view.
      */
     public boolean doAction(String[] inputs){
-        // Act on the user's input.
-        // This is a "dispatch" function that decides what
-        // other functions to call. You can use an if-, if-else,
-        // or switch statement.
+        // There is only one action here; Initialize the Game and
+        // set it in the main CityofAaron class. 
         
-        // return false if you want this view to exit and return
-        // to the view that called it.
-        someActionHandler();
+        // If the player presses enter error. 
+        // error will return to Main Menu.
         
-        return true;
+      if (inputs[0] == null || inputs[0].equals("")) {
+			System.out.println("Better to never try than to fail. Removing you to the Main Menu: ");
+			return false;
+		}
+		
+		String playerName = inputs[0];
+		createAndStartGame(playerName);
+		
+		// Return false to prevent loop.
+        return false;
     }
+    
     
     
     /**
@@ -157,5 +147,25 @@ public class ViewTemplate {
         // classes to do the work of the application.
         
         return true;
+    }
+    
+    //
+        private void createAndStartGame(String playerName){
+        // Will work eventually 
+        // Game game = GameControl.creatNewGame(playerName)
+        
+        
+        Player player = new Player();
+        player.setName(playerName);
+        
+        Game game = new Game();
+        game.setThePlayer(player);
+        
+        CityofAaron.setCurrentGame(game);
+       
+        
+        System.out.println();
+        System.out.println("Welcome to The City of Aaron: " + CityofAaron.getCurrentGame().getThePlayer().getName() + "!\n");
+      
     }
 }
