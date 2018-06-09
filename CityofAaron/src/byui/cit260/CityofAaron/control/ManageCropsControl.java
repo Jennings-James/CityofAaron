@@ -38,7 +38,7 @@ public class ManageCropsControl {
         if (tithing < 8) {
             yieldPerAcre = getRandomNumberInRange(1,3);
         }
-        if (tithing > 7 && tithing < 12) {
+        if (tithing > 7 && tithing <= 12) {
             yieldPerAcre = getRandomNumberInRange(2,4);
         }
         if (tithing > 12) {
