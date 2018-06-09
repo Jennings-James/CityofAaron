@@ -4,10 +4,10 @@
  */
 
 package byui.cit260.CityofAaron.view;
+import cityofaaron.CityofAaron;
 import  byui.cit260.CityofAaron.model.Player;
 import  byui.cit260.CityofAaron.model.Game;
 import  java.util.Scanner;
-
 
 public class StartNewGameView {
     
@@ -81,7 +81,8 @@ public class StartNewGameView {
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("Enter your name: if you're not upto the challange press enter to return to the Main Menu:", true);
+        inputs[0] = getUserInput("Enter your name: if you're not upto the\n"
+                + "challange press enter to return to the Main Menu:", true);
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         
@@ -103,7 +104,8 @@ public class StartNewGameView {
         // error will return to Main Menu.
         
       if (inputs[0] == null || inputs[0].equals("")) {
-			System.out.println("Better to never try than to fail. Removing you to the Main Menu: ");
+			System.out.println("Better to never try than to fail.\n"
+                                + "Removing you to the Main Menu: ");
 			return false;
 		}
 		
@@ -165,7 +167,8 @@ public class StartNewGameView {
        
         
         System.out.println();
-        System.out.println("Welcome to The City of Aaron: " + CityofAaron.getCurrentGame().getThePlayer().getName() + "!\n");
+        System.out.println("Welcome to The City of Aaron: " 
+                + CityofAaron.getCurrentGame().getThePlayer().getName() + "!\n");
       
     }
 }
