@@ -120,7 +120,7 @@ public class MainMenuView {
                 helpMenu();
                 break;
             case "Q":
-                System.out.println("Thank you for playing.");
+                System.out.println("Thank you for playing. Good bye");
                 return false;
         }
         
