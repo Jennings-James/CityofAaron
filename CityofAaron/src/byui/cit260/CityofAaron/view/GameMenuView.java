@@ -25,9 +25,6 @@ public class GameMenuView {
                 + "------------\n"
                 + "N - Start New Game\n"
                 + "L - Load Saved Game\n"
-                + "annual tithe on the wheat that is harvested. If you fail to\n"
-                + "O - Option\n"
-                + "C - Credit\n"
                 + "H - Help Menu\n"
                 + "Q - Quiz\n";
 
