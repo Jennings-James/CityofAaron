@@ -161,13 +161,15 @@ public class ManageCropsMenuView {
     }
     
     private void feedThePeople() {
-        FeedThePeopleView view = new FeedThePeopleView();
-            view.displayView();
+       // FeedThePeopleView view = new FeedThePeopleView();
+       //     view.displayView();
+            System.out.println("FeedThePeople coming soon");
     }
     
     private void plantCrops() {
-        PlantCropsView view = new PlantCropsView();
-            view.displayView();
+       // PlantCropsView view = new PlantCropsView();
+       //     view.displayView();
+        System.out.println("PlantCrops coming soon");
     }
     
     private void payTheTithesAndOfferings() {
