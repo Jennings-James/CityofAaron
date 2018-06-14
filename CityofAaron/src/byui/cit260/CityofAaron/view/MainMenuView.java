@@ -1,33 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package byui.cit260.CityofAaron.view;
 import java.util.Scanner;
+
+
 /**
  *
- * @author jennings
+ * @author pesin
  */
 public class MainMenuView {
-    
-
-
-/**
- *
- * @author kanderson
- */
-
-    
-    
-    /**
-     * The message that will be displayed by this view.
-     */
     protected String message;
     
-    /**
-     * Constructor
-     */
     public MainMenuView(){
         
         message = "Main Menu\n"
@@ -35,7 +17,7 @@ public class MainMenuView {
                 + "N - Start New Game\n"
                 + "L - Load Saved Game\n"
                 + "H - Help Menu\n"
-                + "Q - Quit\n";
+                + "E - Exit\n";
     }
     
     
@@ -72,22 +54,11 @@ public class MainMenuView {
         return input;
     }
     
-    
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we don't have 
-     * to type it ourselves.
-     * @param prompt
-     * @return 
-     */
     protected String getUserInput(String prompt){
         return getUserInput(prompt, false);
     }
     
-    /**
-     * Get the set of inputs from the user.
-     * @return 
-     */
-    public String[] getInputs() {
+        public String[] getInputs() {
         
         // Declare the array to have the number of elements you intend to get 
         // from the user.
@@ -120,7 +91,7 @@ public class MainMenuView {
                 helpMenu();
                 break;
             case "Q":
-                System.out.println("Thank you for playing.");
+                System.out.println("Nice to meet you. Come again");
                 return false;
         }
         
