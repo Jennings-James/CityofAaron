@@ -7,6 +7,9 @@ package byui.cit260.CityofAaron.view;
 
 import java.util.Scanner;
 
+
+
+
 /**
  *
  * @author pesin
@@ -88,26 +91,32 @@ public class GameMenuView {
         return null;
     }
 
-    /**
-     * Perform the action indicated by the user's input.
-     *
-     * @param inputs
-     * @return true if the view should repeat itself, and false if the view
-     * should exit and return to the previous view.
-     */
-    public boolean doAction(String[] inputs) {
-        // There are noinputs for this view. We're just going to pause
-        //for a couple of seconds, and then launch the MainMenuView.
-        GameMenuView();
-        // return false so whoever called us doesn't call us again.
-        return false;
-    }
+      public boolean doAction(String[] inputs){
+        
+        switch (inputs[0].trim().toUpperCase()) {
+            case "N":
+                startNewGame();
+                break;
+            case "L":
+                loadSavedGame();
+                break;
+            case "H":
+                HelpMenu();
+                break;
+            case "Q":
+                System.out.println("Nice to meet you. Come again");
+                return false;
+        }
+        return true;
+      }
+        
+       
 
     /**
      * Control this view's display/prompt/action loop until the user chooses and
      * action that causes this view to close.
      */
-    public void GameMenuView() {
+    public void displayView() {
 
         boolean keepGoing = true;
 
@@ -131,5 +140,9 @@ public class GameMenuView {
         System.out.println("load saved game coming soon");
 
 
+    }
+
+    private void HelpMenu() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
