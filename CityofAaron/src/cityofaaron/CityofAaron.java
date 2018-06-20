@@ -1,11 +1,6 @@
 package cityofaaron;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+import byui.cit260.CityofAaron.view.View;
 import byui.cit260.CityofAaron.model.Game;
 import byui.cit260.CityofAaron.view.StartProgramView;
 
@@ -29,7 +24,8 @@ public class CityofAaron {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        StartProgramView startProgramView = new StartProgramView();
+        
+        View startProgramView = new StartProgramView();
         startProgramView.displayView();
     
       
