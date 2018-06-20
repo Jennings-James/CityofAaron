@@ -1,5 +1,6 @@
 
 package byui.cit260.CityofAaron.view;
+
 import java.util.Scanner;
 
 
@@ -7,57 +8,31 @@ import java.util.Scanner;
  *
  * @author pesin
  */
-public class MainMenuView {
-    protected String message;
+public class MainMenuView extends ViewBase {
     
+    /*
+    *Constuctor
+    */
     public MainMenuView(){
+        super();
         
-        message = "Main Menu\n"
+    }
+    
+    @Override
+    protected String getMessage() {
+        return "Main Menu\n"
                 + "-----------\n"
                 + "N - Start New Game\n"
                 + "L - Load Saved Game\n"
                 + "H - Help Menu\n"
                 + "E - Exit\n";
     }
+    /*
+    *Get the inputs fromthe user.
+    *@return
+    */
     
-    
-    /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a return key)
-     * @return 
-     */
-    protected String getUserInput(String prompt, boolean allowEmpty){
-        
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-        
-        while(inputReceived == false){
-            
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-            
-            // Make sure we avoid a null-pointer error.
-            if (input == null){
-                input = "";
-            }
-            
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-            
-            if (input.equals("") == false || allowEmpty == true){
-                inputReceived = true;
-            }
-        }
-        
-        return input;
-    }
-    
-    protected String getUserInput(String prompt){
-        return getUserInput(prompt, false);
-    }
-    
+        @Override
         public String[] getInputs() {
         
         // Declare the array to have the number of elements you intend to get 
@@ -78,6 +53,7 @@ public class MainMenuView {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+        @Override
     public boolean doAction(String[] inputs){
         
         switch (inputs[0].trim().toUpperCase()) {
@@ -96,23 +72,6 @@ public class MainMenuView {
         }
         
         return true;
-    }
-    
-    
-    /**
-     * Control this view's display/prompt/action loop until the user
-     * chooses and action that causes this view to close.
-     */
-    public void displayView(){
-        
-        boolean keepGoing = true;
-        
-        while(keepGoing == true){
-            
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
     }
     
     

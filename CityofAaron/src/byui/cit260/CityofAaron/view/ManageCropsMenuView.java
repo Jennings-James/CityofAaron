@@ -169,7 +169,7 @@ public class ManageCropsMenuView {
     private void plantCrops() {
        // PlantCropsView view = new PlantCropsView();
        //     view.displayView();
-        System.out.println("PlantCrops coming soon");
+            System.out.println("PlantCrops coming soon");
     }
     
     private void payTheTithesAndOfferings() {
@@ -179,7 +179,7 @@ public class ManageCropsMenuView {
     
     private void startMainMenu(){
         MainMenuView view = new MainMenuView();
-        view.displayView();
+            view.displayView();
     }
     
 }

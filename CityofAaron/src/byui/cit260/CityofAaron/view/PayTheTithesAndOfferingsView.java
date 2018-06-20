@@ -85,7 +85,7 @@ public class PayTheTithesAndOfferingsView {
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("Pease enter the precent you wish to pay as a hole number.");
+        inputs[0] = getUserInput("Pease enter the precent you wish to pay as a decimal(i.e. .10)");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         
@@ -100,10 +100,18 @@ public class PayTheTithesAndOfferingsView {
      * should exit and return to the previous view.
      */
     public boolean doAction(String[] inputs){
-        
-        double payTheTithesAndOfferings = ManageCropsControl.payTheTithesAndOfferings(0,0);
-                System.out.println(payTheTithesAndOfferings);
-        return true;
+        double percent = 0;
+            try {
+                percent = Integer.parseInt(inputs[0]);
+
+            }
+            catch(NumberFormatException nfe) {
+                System.out.println("please enter a number.");
+            }
+
+            double payTheTithesAndOfferings = ManageCropsControl.payTheTithesAndOfferings(percent,ManageCropsControl.wheatHarvested);
+                    System.out.println(payTheTithesAndOfferings);
+            return true;
     }
     
     

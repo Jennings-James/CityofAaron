@@ -113,9 +113,7 @@ public class ManageCropsControlTest {
         int expResult = 0;
         int result = ManageCropsControl.plantCrops(numAcres, wheatStored, landOwned);
         assertEquals(expResult, result);
-        
     }
-    
     @Test
     public void testCase8() {
         int result = ManageCropsControl.plantCrops(100,2000,200);
@@ -126,12 +124,6 @@ public class ManageCropsControlTest {
         int result = ManageCropsControl.plantCrops(-100,2000,200);
         assertEquals(-1, result);
     }
-    /*@Test  This test will not run because 25.7 is not an int so it does not compile.
-    public void testCase10() {
-        int result = ManageCropsControl.plantCrops(25.7,1500,150);
-        assertEquals(-1, result);
-    }
-    */
     @Test
     public void testCase11() {
         int result = ManageCropsControl.plantCrops(1000,2000,800);
