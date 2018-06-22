@@ -23,13 +23,14 @@ public class GameMenuView {
 
    GameMenuView() {
 
-        message = "Welcome to the city of Aaron\n"
+        message = "How much to feed the people\n"
                 + "Main Menu\n"
                 + "------------\n"
-                + "N - Start New Game\n"
-                + "L - Load Saved Game\n"
-                + "H - Help Menu\n"
-                + "Q - Quiz\n";
+                + "V - View list of food\n"
+                + "C - View price\n"
+                + "P - How many people\n"
+                + "H - Help\n"
+                + "Q - Quit\n";
 
     }
 
@@ -104,7 +105,7 @@ public class GameMenuView {
                 HelpMenu();
                 break;
             case "Q":
-                System.out.println("Nice to meet you. Come again");
+                System.out.println("How much does it cost to feed the people");
                 return false;
         }
         return true;
@@ -137,7 +138,7 @@ public class GameMenuView {
        view.displayView();
     }
     private void loadSavedGame() {
-        System.out.println("load saved game coming soon");
+        System.out.println("How much to feed the people");
 
 
     }
