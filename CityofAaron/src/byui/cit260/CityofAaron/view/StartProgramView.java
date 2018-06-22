@@ -11,10 +11,7 @@ import java.util.Scanner;
  */
 public class StartProgramView extends ViewBase {
     
-    
-
    
-    
     /**
      * Constructor
      */
