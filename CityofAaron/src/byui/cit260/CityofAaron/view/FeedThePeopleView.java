@@ -5,8 +5,6 @@
  */
 package byui.cit260.CityofAaron.view;
 
-import static jdk.nashorn.tools.ShellFunctions.input;
-
 /**
  *
  * @author pesin
