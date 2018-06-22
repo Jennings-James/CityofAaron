@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.CityofAaron.control;
+package byui.cit260.CityofAaron.view;
 
 /**
  *
  * @author pesin
  */
-public class FeedThePeopleView {
+class string {
     
 }

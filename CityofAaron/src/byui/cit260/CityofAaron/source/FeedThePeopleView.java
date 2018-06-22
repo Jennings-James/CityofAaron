@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.CityofAaron.view;
+package byui.cit260.CityofAaron.source;
 
 
-public class FeedThePeopleViewImpl extends FeedThePeopleView {
+public class FeedThePeopleView extends byui.cit260.CityofAaron.view.FeedThePeopleView {
     
 }

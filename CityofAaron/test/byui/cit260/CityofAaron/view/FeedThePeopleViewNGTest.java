@@ -42,5 +42,48 @@ public class FeedThePeopleViewNGTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of getMessage method, of class FeedThePeopleView.
+     */
+    @Test
+    public void testGetMessage() {
+        System.out.println("getMessage");
+        FeedThePeopleView instance = new FeedThePeopleView();
+        String expResult = "";
+        String result = instance.getMessage();
+        assertEquals(result, expResult);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getInputs method, of class FeedThePeopleView.
+     */
+    @Test
+    public void testGetInputs() {
+        System.out.println("getInputs");
+        FeedThePeopleView instance = new FeedThePeopleView();
+        String[] expResult = null;
+        String[] result = instance.getInputs();
+        assertEquals(result, expResult);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of doAction method, of class FeedThePeopleView.
+     */
+    @Test
+    public void testDoAction() {
+        System.out.println("doAction");
+        String[] inputs = null;
+        FeedThePeopleView instance = new FeedThePeopleView();
+        boolean expResult = false;
+        boolean result = instance.doAction(inputs);
+        assertEquals(result, expResult);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }

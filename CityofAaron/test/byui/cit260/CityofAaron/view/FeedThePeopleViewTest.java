@@ -42,5 +42,60 @@ public class FeedThePeopleViewTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of getMessage method, of class FeedThePeopleView.
+     */
+    @Test
+    public void testGetMessage() {
+        System.out.println("getMessage");
+        FeedThePeopleView instance = new FeedThePeopleView();
+        String expResult = "";
+        String result = instance.getMessage();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getInputs method, of class FeedThePeopleView.
+     */
+    @Test
+    public void testGetInputs() {
+        System.out.println("getInputs");
+        FeedThePeopleView instance = new FeedThePeopleView();
+        String[] expResult = null;
+        String[] result = instance.getInputs();
+        assertArrayEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of doAction method, of class FeedThePeopleView.
+     */
+    @Test
+    public void testDoAction() {
+        System.out.println("doAction");
+        String[] inputs = null;
+        FeedThePeopleView instance = new FeedThePeopleView();
+        boolean expResult = false;
+        boolean result = instance.doAction(inputs);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of displayView method, of class FeedThePeopleView.
+     */
+    @Test
+    public void testDisplayView() {
+        System.out.println("displayView");
+        FeedThePeopleView instance = new FeedThePeopleView();
+        instance.displayView();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }
