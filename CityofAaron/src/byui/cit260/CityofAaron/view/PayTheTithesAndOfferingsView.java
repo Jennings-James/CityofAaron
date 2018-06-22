@@ -64,7 +64,7 @@ public class PayTheTithesAndOfferingsView extends ViewBase{
                 System.out.println("please enter a number.");
             }
 
-            double payTheTithesAndOfferings = ManageCropsControl.payTheTithesAndOfferings(percent,ManageCropsControl.wheatHarvested);
+            double payTheTithesAndOfferings = ManageCropsControl.payTheTithesAndOfferings(percent,0);
                     System.out.println(payTheTithesAndOfferings);
             return true;
     }
