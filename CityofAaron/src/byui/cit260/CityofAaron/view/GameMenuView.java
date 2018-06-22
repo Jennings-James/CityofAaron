@@ -14,88 +14,34 @@ import java.util.Scanner;
  *
  * @author pesin
  */
-public class GameMenuView {
+public class GameMenuView extends ViewBase {
 
     /**
-     * The message that will be displayed by this view.
+     *  Constructor
      */
-    protected String message;
-
-   GameMenuView() {
-
-        message = "How much to feed the people\n"
-                + "Main Menu\n"
+  @Override
+          protected String getMessage(){
+          return "Main Menu\n"
                 + "------------\n"
-                + "V - View list of food\n"
-                + "C - View price\n"
-                + "P - How many people\n"
-                + "H - Help\n"
+                + "S - Start Menu"
+                + "L - Load Game\n"
+                + "H - Help menu\n"
                 + "Q - Quit\n";
-
     }
-
-    /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     *
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a
-     * return key)
-     * @return
-     */
-    protected String getUserInput(String prompt, boolean allowEmpty) {
-
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-
-        while (inputReceived == false) {
-
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-
-            // Make sure we avoid a null-pointer error.
-            if (input == null) {
-                input = "";
-            }
-
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-
-            if (input.equals("") == false || allowEmpty == true) {
-                inputReceived = true;
-            }
-        }
-
-        return input;
-    }
-
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we
-     * don't have to type it ourselves.
-     *
-     * @param prompt
-     * @return
-     */
-    protected String getUserInput(String prompt) {
-        return getUserInput(prompt, false);
-    }
-
-    /**
-     * Get the set of inputs from the user.
-     *
-     * @return
-     */
+    @Override 
     public String[] getInputs() {
+      String[] inputs = null;
 
         // This view is not interactive. All it does is shows 
         //the game description. 
-        return null;
+        return inputs;
     }
+    
 
       public boolean doAction(String[] inputs){
         
         switch (inputs[0].trim().toUpperCase()) {
-            case "N":
+            case "S":
                 startNewGame();
                 break;
             case "L":
@@ -122,6 +68,7 @@ public class GameMenuView {
         boolean keepGoing = true;
 
         while (keepGoing == true) {
+            boolean message = false;
 
             System.out.println(message);
             String[] inputs = getInputs();
@@ -129,16 +76,14 @@ public class GameMenuView {
         }
     }
 
-    // Define your action handlers here. These are the methods that your doAction()
-    // method will call based on the user's input. We don't want to do a lot of 
-    // complex game stuff in our doAction() method. It will get messy very quickly.
+   
     private void startNewGame() {
         //Pause for a couple of seconds.
        StartNewGameView view = new StartNewGameView();
        view.displayView();
     }
     private void loadSavedGame() {
-        System.out.println("How much to feed the people");
+        System.out.println("Message");
 
 
     }

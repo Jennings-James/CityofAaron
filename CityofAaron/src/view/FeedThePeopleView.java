@@ -1,34 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package byui.cit260.CityofAaron.view;
+
+package view;
+
+import java.util.Scanner;
+
+
+
 
 /**
  *
  * @author pesin
  */
 public class FeedThePeopleView {
-    
+
 }
-
-package view;
-
-import java.util.Scanner;
 /**
- *
- * @author pesin
+ * The message that will be displayed by this view.
  */
-@Override
-protected String getMessage() {
-return "Main Menu\n"
-        + "N - Start New Game\n"
-        + "L - Load and Save Game/n"
-        + "H - Help Menu\n"
-        + "Q - Quit\n";
-}
-
+   
+    /**
+     * Constructor
+     */
     public FeedThePeopleView() {
         
         message = "Feed The People\n"
@@ -48,8 +39,11 @@ return "Main Menu\n"
      * @return 
      */
     protected String getUserInput(String prompt, boolean allowEmpty){
+        
+       
+        
         System.out.println();
-        System.out.println("Thank you."); 
-         + CityofAaron.getCurrentGame().getThePlayer().getName() + "!\n");
+        System.out.println("How much do feed the people: " 
+                + CityofAaron.getCurrentGame().getThePlayer().getName() + "!\n");
       
 }
