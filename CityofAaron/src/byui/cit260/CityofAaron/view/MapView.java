@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.CityofAaron.source;
+package byui.cit260.CityofAaron.view;
 
-
-public class FeedThePeopleView extends byui.cit260.CityofAaron.view.FeedThePeopleView {
+/**
+ *
+ * @author kemblesque
+ */
+public class MapView {
     
 }

@@ -67,7 +67,7 @@ public class ManageCropsControl {
     return landPrice;
     }
     
-    public static int sellLand  (int landPrice, int acresToSell, Game game){
+    public static int sellLand(int landPrice, int acresToSell, Game game){
         
      //if acresToSell < 0 return -1
      if (acresToSell < 0)
@@ -104,6 +104,10 @@ public class ManageCropsControl {
 *end
 */
 
+    public static int plantCrops(int numAcres) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     public static int plantCrops (int numAcres, int wheatStored, int landOwned) {
         if (numAcres < 0) {
             return -1;
@@ -141,6 +145,8 @@ public class ManageCropsControl {
 		//return r.nextInt((max - min) + 1) + min;
                 return randomGenerator.nextInt((int) ((max - min) + 0x1)) + min;
     }
+
+    
 public double calculateWheatEatenByRats(double tithing, int eatenByRats, Game game){    
     //calculate a random number between 1 and 100
     //if less than 30 some wheat will be eaten by rats

@@ -107,7 +107,9 @@ public class ManageCropsMenuView extends ViewBase {
     private void plantCrops() {
        // PlantCropsView view = new PlantCropsView();
        //     view.displayView();
-            System.out.println("PlantCrops coming soon");
+       PlantTheCropsView view = new PlantTheCropsView() {};
+             view.displayView();
+            
     }
     
     private void payTheTithesAndOfferings() {
