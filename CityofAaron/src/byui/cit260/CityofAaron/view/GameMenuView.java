@@ -23,10 +23,13 @@ public class GameMenuView extends ViewBase {
           protected String getMessage(){
           return "Main Menu\n"
                 + "------------\n"
-                + "S - Start Menu"
-                + "L - Load Game\n"
-                + "H - Help menu\n"
-                + "Q - Quit\n";
+                + "V - View Map\n"
+                + "N - Move to new location\n"
+                + "M - Manage Crops\n"
+                + "L - Live the Year\n"
+                + "R - Reports Menu\n"
+                + "S - Save Gmme\n"
+                + "R - Return to the Main Menu\n";
     }
     @Override 
     public String[] getInputs() {

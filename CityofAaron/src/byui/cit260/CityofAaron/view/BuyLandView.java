@@ -30,12 +30,20 @@ public class BuyLandView extends ViewBase {
     protected String getMessage(){
         return "Main Menu\n"
                
-                + "Your responsibility is to buy and sell land, determine how\n"
-                + "how much is the land selling for\n"
-                + "how big is the land you are buying\n"
-                + "Buy Land\n";
+                + "1 - Generate a random number between 17 and 27 for the price of an acre of land. Dispaly the price to the user"
+                + "2 - How manu acres of new land do you want to buy?"
+                + "3- Enter a number"
+                + "4 - If the value is not positive enter value again"
+                + "5 - If not enough wheat to purchase enter a value again"
+                + "6 - If not enought people to take care 10 acres enter different number"
+                + "7 - Subtract Number of acres purchased from the acres owned"
+                + "8 - Left wheat from purchase"
+                + "9 - left weat own"
+                + "M - Return main Menu";
+        
                 
     }
+ 
     /**
      * Get the set of inputs from the user;
      * @return
