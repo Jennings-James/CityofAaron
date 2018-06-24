@@ -37,7 +37,7 @@ public class GameMenuView extends ViewBase {
         return inputs;
     }
     
-
+    @Override
       public boolean doAction(String[] inputs){
         
         switch (inputs[0].trim().toUpperCase()) {
@@ -59,22 +59,6 @@ public class GameMenuView extends ViewBase {
         
        
 
-    /**
-     * Control this view's display/prompt/action loop until the user chooses and
-     * action that causes this view to close.
-     */
-    public void displayView() {
-
-        boolean keepGoing = true;
-
-        while (keepGoing == true) {
-            boolean message = false;
-
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
-    }
 
    
     private void startNewGame() {
