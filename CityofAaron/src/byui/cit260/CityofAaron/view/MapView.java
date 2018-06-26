@@ -9,6 +9,6 @@ package byui.cit260.CityofAaron.view;
  *
  * @author kemblesque
  */
-public class MapView {
+public class MapView extends ViewBase {
     
 }

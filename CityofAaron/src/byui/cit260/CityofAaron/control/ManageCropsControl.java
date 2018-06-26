@@ -70,13 +70,13 @@ public class ManageCropsControl {
     public static int sellLand(int landPrice, int acresToSell, Game game){
         
      //if acresToSell < 0 return -1
-     if (acresToSell < 0)
+        if (acresToSell < 0)
         return -1;
     
      //if acresToSell > acresOwned, return -1
-        int acresOwned = game.getAcresOwned();
+       int acresOwned = game.getAcresOwned();
         if (acresToSell > acresOwned)
-            return -1;
+        return -1;
         
      //acresOwned = acresOwned - acresToSell
         acresOwned = acresOwned - acresToSell;

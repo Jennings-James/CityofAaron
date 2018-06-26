@@ -29,14 +29,18 @@ public class GameMenuView extends ViewBase {
                 + "L - Live the Year\n"
                 + "R - Reports Menu\n"
                 + "S - Save Gmme\n"
-                + "R - Return to the Main Menu\n";
+                + "Q - Quit to the Main Menu\n";
     }
     @Override 
     public String[] getInputs() {
-      String[] inputs = null;
-
-        // This view is not interactive. All it does is shows 
-        //the game description. 
+      // Declare the array to have the number of elements you intend to get 
+        // from the user.
+        String[] inputs = new String[1];
+        
+        inputs[0] = getUserInput("Please choose your fate!");
+        
+        // Repeat for each input you need, putting it into its proper slot in the array.
+        
         return inputs;
     }
     
@@ -44,38 +48,50 @@ public class GameMenuView extends ViewBase {
       public boolean doAction(String[] inputs){
         
         switch (inputs[0].trim().toUpperCase()) {
-            case "S":
-                startNewGame();
+            case "V":
+                viewMap();
+                break;
+            case "N":
+                moveLocation();
+                break;
+            case "M":
+                manageCrops();
                 break;
             case "L":
-                loadSavedGame();
+                liveYear();
                 break;
-            case "H":
-                HelpMenu();
+            case "R":
+                reportsMenu();
+                break;
+            case "S":
+                saveGame();
                 break;
             case "Q":
-                System.out.println("How much does it cost to feed the people");
+                System.out.println("Returning you to the Main menu");
                 return false;
         }
         return true;
       }
         
-       
-
-
-   
-    private void startNewGame() {
-        //Pause for a couple of seconds.
-       StartNewGameView view = new StartNewGameView();
-       view.displayView();
-    }
-    private void loadSavedGame() {
-        System.out.println("Message");
-
-
-    }
-
-    private void HelpMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+      private void viewMap(){
+          MapView view = new MapView();
+          view.displayView();
+      }
+      private void moveLocation() {
+          System.out.println("coming soon");
+      }
+      private void manageCrops() {
+          ManageCropsMenuView view = new ManageCropsMenuView();
+          view.displayView();
+      }
+      private void liveYear() {
+          System.out.println("you will live shortly");
+      }
+      private void reportsMenu() {
+          ReportsMenuView view = new ReportsMenuView();
+          view.displayView();
+      }
+      private void saveGame() {
+          System.out.println("No saving yet");
+      }
 }

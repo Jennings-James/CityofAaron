@@ -35,7 +35,7 @@ public class StartNewGameView extends ViewBase {
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("Enter your name: if you're not upto the\n"
+        inputs[0] = getUserInput("Enter your name: if you're not up to the\n"
                 + "challange press enter to return to the Main Menu:", true);
         
         // Repeat for each input you need, putting it into its proper slot in the array.
@@ -68,6 +68,7 @@ public class StartNewGameView extends ViewBase {
 		createAndStartGame(playerName);
 		
 		// Return false to prevent loop.
+        gameMenu();
         return false;
     }
     
@@ -91,7 +92,7 @@ public class StartNewGameView extends ViewBase {
     //
         private void createAndStartGame(String playerName){
         // Will work eventually 
-        // Game game = GameControl.creatNewGame(playerName)
+        // Game game = GameControl.creatNewGame(playerName);
         
         
         Player player = new Player();
@@ -103,9 +104,12 @@ public class StartNewGameView extends ViewBase {
         CityofAaron.setCurrentGame(game);
        
         
-        System.out.println();
         System.out.println("Welcome to The City of Aaron: " 
                 + CityofAaron.getCurrentGame().getThePlayer().getName() + "!\n");
       
     }
+        private void gameMenu() {
+            GameMenuView view = new GameMenuView();
+            view.displayView();
+        }
 }

@@ -18,7 +18,7 @@ public class CityofAaron {
     }
     
     public static void setCurrentGame(Game game) {
-        currentGame = game;
+        CityofAaron.currentGame = game;
     }
         /**
      * @param args the command line arguments

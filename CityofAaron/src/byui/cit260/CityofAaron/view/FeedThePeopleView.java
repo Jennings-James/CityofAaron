@@ -7,16 +7,30 @@ package byui.cit260.CityofAaron.view;
 
 
 public class FeedThePeopleView extends ViewBase{
-
+    
+    //Constructor
+public FeedThePeopleView() {
+    super();
+}
     @Override
     protected String getMessage() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Your people are hungry and will starve if you do not give\n"
+                + "them enough to eat";
     }
 
     @Override
     protected String[] getInputs() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // Declare the array to have the number of elements you intend to get 
+        // from the user.
+        String[] inputs = new String[1];
+        
+        inputs[0] = getUserInput("How many bushels do you want to feed the people?", true);
+        
+        // Repeat for each input you need, putting it into its proper slot in the array.
+        
+        return inputs;
     }
+    
 
     @Override
     public boolean doAction(String[] inputs) {
