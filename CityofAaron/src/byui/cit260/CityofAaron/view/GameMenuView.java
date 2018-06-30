@@ -18,18 +18,19 @@ public class GameMenuView extends ViewBase {
 
     /**
      *  Constructor
+     * @return
      */
-  @Override
-          protected String getMessage(){
-          return "Main Menu\n"
-                + "------------\n"
-                + "V - View Map\n"
-                + "N - Move to new location\n"
-                + "M - Manage Crops\n"
-                + "L - Live the Year\n"
-                + "R - Reports Menu\n"
-                + "S - Save Gmme\n"
-                + "Q - Quit to the Main Menu\n";
+    @Override
+    protected String getMessage(){
+        return "Main Menu\n"
+               + "------------\n"
+               + "V - View Map\n"
+               + "N - Move to new location\n"
+               + "M - Manage Crops\n"
+               + "L - Live the Year\n"
+               + "R - Reports Menu\n"
+               + "S - Save Gmme\n"
+               + "Q - Quit to the Main Menu\n";
     }
     @Override 
     public String[] getInputs() {

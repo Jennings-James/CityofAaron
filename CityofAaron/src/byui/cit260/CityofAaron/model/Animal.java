@@ -10,16 +10,16 @@ import java.io.Serializable;
  *
  * @author jennings
  */
-public class Animal {
+public class Animal extends InventoryItem {
     
-    
+
+
+public Animal() {
+    super();
+    }
     private String name;
     private int age;
     
-    
-    public Animal(){
-        // Empty constructor for JavaBeans
-    }
 
     public String getName() {
         return name;

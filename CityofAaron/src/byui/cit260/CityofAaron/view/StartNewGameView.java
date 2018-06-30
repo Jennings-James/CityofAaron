@@ -7,6 +7,7 @@ package byui.cit260.CityofAaron.view;
 import cityofaaron.CityofAaron;
 import  byui.cit260.CityofAaron.model.Player;
 import  byui.cit260.CityofAaron.model.Game;
+import byui.cit260.CityofAaron.control.GameControl;
 import  java.util.Scanner;
 
 public class StartNewGameView extends ViewBase {
@@ -64,8 +65,8 @@ public class StartNewGameView extends ViewBase {
 			return false;
 		}
 		
-		String playerName = inputs[0];
-		createAndStartGame(playerName);
+		String name = inputs[0];
+		createAndStartGame(name);
 		
 		// Return false to prevent loop.
         gameMenu();
@@ -89,20 +90,20 @@ public class StartNewGameView extends ViewBase {
         return true;
     }
     
-    //
-        private void createAndStartGame(String playerName){
-        // Will work eventually 
-        // Game game = GameControl.creatNewGame(playerName);
+    
+        private void createAndStartGame(String name){
+         
+        GameControl.creatNewGame(name);
         
         
-        Player player = new Player();
+       /* Player player = new Player();
         player.setName(playerName);
         
-        Game game = new Game();
+        //Game game = new Game();
         game.setThePlayer(player);
         
         CityofAaron.setCurrentGame(game);
-       
+       */
         
         System.out.println("Welcome to The City of Aaron: " 
                 + CityofAaron.getCurrentGame().getThePlayer().getName() + "!\n");
