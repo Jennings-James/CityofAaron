@@ -6,13 +6,16 @@
 package byui.cit260.CityofAaron.model;
 
 import java.io.Serializable;
-
+import java.util.ArrayList;
+import java.util.Objects;
 /**
  *
  * @author jennings
  */
 public class Game implements Serializable {
     
+    
+
     private Player thePlayer;
     private Map theMap;
     private Storehouse theStorehouse;
@@ -20,7 +23,18 @@ public class Game implements Serializable {
     private int acresOwned;
     private int wheatStorage;
     private int currentYear;
+    private InventoryItem inventory;
+    private ArrayList<Animal> animals;
     
+    
+    
+    public InventoryItem getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(InventoryItem inventory) {
+        this.inventory = inventory;
+    }
     public Game(){
         // Empty constructor for JavaBeans
     } 
@@ -80,6 +94,16 @@ public class Game implements Serializable {
     public void setCurrentYear(int currentYear) {
         this.currentYear = currentYear;
     }
+
+    public ArrayList<Animal> getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(ArrayList<Animal> animals) {
+        this.animals = animals;
+    }
+   
+    
     
    
 
