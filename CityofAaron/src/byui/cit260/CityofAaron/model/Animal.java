@@ -6,6 +6,8 @@
 package byui.cit260.CityofAaron.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 /**
  *
  * @author jennings
@@ -19,8 +21,12 @@ public Animal() {
     }
     private String name;
     private int age;
-    
 
+   public Animal(String name, int age) {
+       this.name = name;
+       this.age = age;
+   }
+  
     public String getName() {
         return name;
     }
@@ -36,11 +42,5 @@ public Animal() {
     public void setAge(int age) {
         this.age = age;
     }
-    
-    @Override
-    public String toString() {
-        return "Animal { Name= " + name 
-                + " Age= " + age 
-                + "}";
-    }
+  
 }

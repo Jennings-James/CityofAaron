@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.io.Serializable;
 import cityofaaron.CityofAaron;
 import byui.cit260.CityofAaron.model.*;
+
 /**
  *
  * @author jennings
@@ -19,9 +20,11 @@ public class GameControl implements Serializable {
     public GameControl(){
         
     }
+    private static Game game;
+    
     public static void creatNewGame (String name) {
         //Created the game object.
-        Game game = new Game();
+        game = new Game();
         CityofAaron.setCurrentGame(game);
         //create the player object.
         Player thePlayer = new Player();
@@ -29,16 +32,34 @@ public class GameControl implements Serializable {
         game.setThePlayer(thePlayer);
         Map theMap = new Map();
         game.setTheMap(theMap);
-        
-    }
         //createe the Storehouse object.
-      public static void creatStorehouse() {
-          Storehouse storehouse = new Storehouse();
-         
-        
+        Storehouse storehouse = new Storehouse();
+        creatAnimalsList();
+    } 
           
-      }  
+    public static void creatAnimalsList() {
+        ArrayList<Animal> animals = new ArrayList<>();
         
+        animals.add(new Animal("chikens", 5));
+        animals.add(new Animal("pigs", 2));  
+        animals.add(new Animal("horses", 10));  
+        animals.add(new Animal("lamas", 12));
+        animals.add(new Animal("cows", 7));
+        
+        game.setAnimals(animals);
+      }  
+          
+    public static void animalsInStorehouse(){
+        System.out.println ("Current Animals:\n");
+        for(int i = 0; i < game.getAnimals().size(); i++) {
+            System.out.println(game.getAnimals().get(i).getName() + "-" 
+                + game.getAnimals().get(i).getAge());
+       } 
+       
+      
+    } 
+    
+    
     
     
     
