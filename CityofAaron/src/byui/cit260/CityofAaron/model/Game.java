@@ -25,8 +25,9 @@ public class Game implements Serializable {
     private int currentYear;
     private InventoryItem inventory;
     private ArrayList<Animal> animals;
-    
-    
+    private int acresPlanted;
+    private int wheatHarvested;
+    private double tithePaid;
     
     public InventoryItem getInventory() {
         return inventory;
@@ -101,6 +102,30 @@ public class Game implements Serializable {
 
     public void setAnimals(ArrayList<Animal> animals) {
         this.animals = animals;
+    }
+
+    public int getAcresPlanted() {
+        return acresPlanted;
+    }
+
+    public void setAcresPlanted(int acresPlanted) {
+        this.acresPlanted = acresPlanted;
+    }
+
+    public int getWheatHarvested() {
+        return wheatHarvested;
+    }
+
+    public void setWheatHarvested(int wheatHarvested) {
+        this.wheatHarvested = wheatHarvested;
+    }
+
+    public double getTithePaid() {
+        return tithePaid;
+    }
+
+    public void setTithePaid(double tithePaid) {
+        this.tithePaid = tithePaid;
     }
    
     

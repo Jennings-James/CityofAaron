@@ -57,7 +57,7 @@ public class ManageCropsMenuView extends ViewBase {
      */
     @Override
     public boolean doAction(String[] inputs){
-       
+        
         switch (inputs[0].trim().toUpperCase()){
             case "B":
                 buyLand();
@@ -77,11 +77,11 @@ public class ManageCropsMenuView extends ViewBase {
             case "R":
                 return false;
                 
-        }
+        } 
+                
         
         return true;
     }
-    
     
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of 
@@ -99,15 +99,13 @@ public class ManageCropsMenuView extends ViewBase {
     }
     
     private void feedThePeople() {
-       // FeedThePeopleView view = new FeedThePeopleView();
-       //     view.displayView();
-            System.out.println("FeedThePeople coming soon");
+        FeedThePeopleView view = new FeedThePeopleView();
+            view.displayView();
+           
     }
     
     private void plantCrops() {
-       // PlantCropsView view = new PlantCropsView();
-       //     view.displayView();
-       PlantTheCropsView view = new PlantTheCropsView() {};
+        PlantTheCropsView view = new PlantTheCropsView() {};
              view.displayView();
             
     }

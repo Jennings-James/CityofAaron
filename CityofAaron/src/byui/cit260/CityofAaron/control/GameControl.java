@@ -20,7 +20,7 @@ public class GameControl implements Serializable {
     public GameControl(){
         
     }
-    private static Game game;
+    public static Game game;
     
     public static void creatNewGame (String name) {
         //Created the game object.
@@ -32,6 +32,9 @@ public class GameControl implements Serializable {
         game.setThePlayer(thePlayer);
         Map theMap = new Map();
         game.setTheMap(theMap);
+        game.setWheatStorage(2000);
+        game.setAcresOwned(100);
+        game.setWheatHarvested(2000);
         //createe the Storehouse object.
         Storehouse storehouse = new Storehouse();
         creatAnimalsList();

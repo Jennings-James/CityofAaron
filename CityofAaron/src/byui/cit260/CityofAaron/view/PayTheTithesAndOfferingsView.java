@@ -4,15 +4,17 @@
  * and open the template in the editor.
  */
 package byui.cit260.CityofAaron.view;
-import byui.cit260.CityofAaron.control.ManageCropsControl;
+import byui.cit260.CityofAaron.control.*;
 import java.util.Scanner;
+import byui.cit260.CityofAaron.exceptions.ManageCropsControlException;
+import byui.cit260.CityofAaron.model.Game;
 /**
  *
  * @author jennings
  */
 public class PayTheTithesAndOfferingsView extends ViewBase{
-    
-    /**
+    double tithe = 0;
+    /*
      * Constructor
      */
     public PayTheTithesAndOfferingsView(){
@@ -39,7 +41,8 @@ public class PayTheTithesAndOfferingsView extends ViewBase{
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("Pease enter the precent you wish to pay as a decimal(i.e. .10)");
+        inputs[0] = getUserInput("Pease enter the precent you wish to pay as a\n"
+                + "whole number.(i.e. 10 = 10%)");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         
@@ -54,7 +57,8 @@ public class PayTheTithesAndOfferingsView extends ViewBase{
      * should exit and return to the previous view.
      */
     @Override
-    public boolean doAction(String[] inputs){
+    public boolean doAction(String[] inputs) {
+        int wheatHarvested = GameControl.game.getWheatHarvested();
         double percent = 0;
             try {
                 percent = Integer.parseInt(inputs[0]);
@@ -63,10 +67,17 @@ public class PayTheTithesAndOfferingsView extends ViewBase{
             catch(NumberFormatException nfe) {
                 System.out.println("please enter a number.");
             }
-
-            double payTheTithesAndOfferings = ManageCropsControl.payTheTithesAndOfferings(percent,0);
-                    System.out.println(payTheTithesAndOfferings);
-            return true;
+            try {
+            tithe = ManageCropsControl.payTheTithesAndOfferings(percent, wheatHarvested);
+            }
+            catch (ManageCropsControlException ie) {
+                System.out.println(ie.getMessage());
+                return false;
+            }
+            /*int newTithe = (int) tithe;*/
+            GameControl.game.setTithePaid(tithe);
+            System.out.println("You have paid " + tithe + " bushels of wheat in tihing.");
+            return false;
     }
     
     // Define your action handlers here. These are the methods that your doAction()

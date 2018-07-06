@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.CityofAaron.view;
-
+import byui.cit260.CityofAaron.control.*;
 
 public class FeedThePeopleView extends ViewBase{
     
@@ -34,7 +34,22 @@ public FeedThePeopleView() {
 
     @Override
     public boolean doAction(String[] inputs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int currentPopulation = GameControl.game.getCurrentPopulation();
+        int wheatStorage = GameControl.game.getWheatStorage();
+        int bushelsToFeed = Integer.parseInt(inputs[0]);
+        int feedPeople = 0;
+        
+        feedPeople = ManageCropsControl.feedThePeople(currentPopulation, wheatStorage, bushelsToFeed);
+            if (feedPeople == currentPopulation) {
+                System.out.println("Congradulations no one starved");
+                GameControl.game.setWheatStorage(wheatStorage - bushelsToFeed);
+            }
+            else {
+                GameControl.game.setWheatStorage(wheatStorage - bushelsToFeed);  
+            }
+            return false;
+            
+            
     }
     
 }

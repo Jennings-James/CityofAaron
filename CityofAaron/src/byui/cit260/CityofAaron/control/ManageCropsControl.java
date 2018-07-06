@@ -12,11 +12,13 @@
 package byui.cit260.CityofAaron.control;
 import byui.cit260.CityofAaron.model.Game;
 import java.util.Random;
+import byui.cit260.CityofAaron.exceptions.ManageCropsControlException;
 /**
  *
  * @author jennings
  */
 public class ManageCropsControl {
+    
     /*Random number generator outputs a random between the 2 ints passed to it*/
     private static Random randomGenerator = new Random();
     
@@ -29,11 +31,12 @@ public class ManageCropsControl {
                 return randomGenerator.nextInt((max - min) + 1) + min;
     }
     /*Calculation for crop harvest*/
-    public static int calcCropHarvest (int tithing, int acresPlanted) {
+    public static int calcCropHarvest (int tithing, int acresPlanted)
+            throws ManageCropsControlException{
         int yieldPerAcre = 0;
         int wheatHarvested;
         if (tithing < 0 || tithing > 100) { //check for valid tithing
-            return -1;
+            throw new ManageCropsControlException("The tithing needs to be between 0 and 100");
         }
         if (tithing < 8) {
             yieldPerAcre = getRandomNumberInRange(1,3);
@@ -67,16 +70,17 @@ public class ManageCropsControl {
     return landPrice;
     }
     
-    public static int sellLand(int landPrice, int acresToSell, Game game){
+    public static int sellLand(int landPrice, int acresToSell, Game game)
+            throws ManageCropsControlException {
         
      //if acresToSell < 0 return -1
         if (acresToSell < 0)
-        return -1;
+        throw new ManageCropsControlException("Must be a positive amount");
     
      //if acresToSell > acresOwned, return -1
        int acresOwned = game.getAcresOwned();
         if (acresToSell > acresOwned)
-        return -1;
+        throw new ManageCropsControlException("You cannot sell more then you own");
         
      //acresOwned = acresOwned - acresToSell
         acresOwned = acresOwned - acresToSell;
@@ -104,27 +108,37 @@ public class ManageCropsControl {
 *end
 */
 
-    public static int plantCrops(int numAcres) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
-    public static int plantCrops (int numAcres, int wheatStored, int landOwned) {
+    
+    public static int plantCrops (int numAcres, int wheatStored, int landOwned) 
+            throws ManageCropsControlException {
+        
         if (numAcres < 0) {
-            return -1;
+            throw new ManageCropsControlException("Enter a positive number");
         }
         if (numAcres > landOwned) {
-            return -1;
+           throw new ManageCropsControlException("You cannot plant more land then you own");
         }
         if ((numAcres / 2) > wheatStored) {
-            return -1;
+            throw new ManageCropsControlException("You do not have enough wheat for that");
         }
-        else return numAcres / 2;
+        else GameControl.game.setWheatStorage(wheatStored - (numAcres / 2));
+            return numAcres;
+        
     }
-    public static double payTheTithesAndOfferings(double percentToPay, double wheatHarvested) {
+    
+    
+    
+    public static double payTheTithesAndOfferings(double percentToPay, int wheatHarvested) 
+            throws ManageCropsControlException {
+        
         if (percentToPay < 0 || percentToPay > 100) {
-            return -1;
+            throw new ManageCropsControlException("Your tithing must between 0 and 100");
         }
         double tithe = (percentToPay / 100) * wheatHarvested;
+        int newTithe = (int) Math.round(tithe);
+            GameControl.game.setWheatStorage(wheatHarvested - newTithe + GameControl.game.getWheatStorage());
+            
             return tithe;
     }
 
@@ -147,35 +161,52 @@ public class ManageCropsControl {
     }
 
     
-public double calculateWheatEatenByRats(double tithing, int eatenByRats, Game game){    
-    //calculate a random number between 1 and 100
-    //if less than 30 some wheat will be eaten by rats
-    int wheatStorage = game.getWheatStorage();
-    int ratsChance = getRandomNumberInRange(1,100);
-    if (ratsChance < 30){
-        //If T&O 8-12% random value between 3-7% of wheatStorage eaten by rats 
-        if (tithing > 0.07 && tithing < 0.12) {
-            eatenByRats = (int) getRandomNumberInRange(0.03,0.07);
+    public double calculateWheatEatenByRats(double tithing, int eatenByRats, Game game){    
+        //calculate a random number between 1 and 100
+        //if less than 30 some wheat will be eaten by rats
+        int wheatStorage = game.getWheatStorage();
+        int ratsChance = getRandomNumberInRange(1,100);
+        if (ratsChance < 30){
+            //If T&O 8-12% random value between 3-7% of wheatStorage eaten by rats 
+            if (tithing > 0.07 && tithing < 0.12) {
+                eatenByRats = (int) getRandomNumberInRange(0.03,0.07);
+                }
+            //If T&O < 8% random value between 6-10% of wheatStorage eaten by rats
+            else if (tithing < 0.08) {
+                eatenByRats = (int) getRandomNumberInRange(0.06,0.1);
             }
-        //If T&O < 8% random value between 6-10% of wheatStorage eaten by rats
-        else if (tithing < 0.08) {
-            eatenByRats = (int) getRandomNumberInRange(0.06,0.1);
+            //If T&O > 12% random value between 3-5% of wheatStorage eaten by rats 
+            else if (tithing > 0.12) {
+                eatenByRats = (int) getRandomNumberInRange(0.03,0.05);
+            }
+            //if random number > 30
+            else{
+              eatenByRats = 0;
+            }
         }
-        //If T&O > 12% random value between 3-5% of wheatStorage eaten by rats 
-        else if (tithing > 0.12) {
-            eatenByRats = (int) getRandomNumberInRange(0.03,0.05);
-        }
-        //if random number > 30
-        else{
-          eatenByRats = 0;
-        }
+
+            wheatStorage = wheatStorage - (eatenByRats * wheatStorage);
+            return wheatStorage; 
     }
-        
-        wheatStorage = wheatStorage - (eatenByRats * wheatStorage);
-        return wheatStorage;
-    
-    
-}
 
-
+    public static int feedThePeople(int currentPopulation, int wheatStorage, int bushelsToFeed) {
+        int bushelsNeeded = currentPopulation * 20;
+        int peopleStarved = 0;
+        if (bushelsToFeed > wheatStorage) {
+            return -1;
+        }  
+        if (bushelsToFeed < 0) {
+            return -1;
+        }
+        if (bushelsToFeed > bushelsNeeded) {
+            return currentPopulation;
+        }
+        if (bushelsToFeed < bushelsNeeded) { 
+            peopleStarved = (bushelsNeeded - bushelsToFeed) / 20;
+            return peopleStarved;
+        }
+            GameControl.game.setCurrentPopulation(currentPopulation - peopleStarved);
+            System.out.println(peopleStarved + " people starved");
+        return -1;
+    } 
 }
