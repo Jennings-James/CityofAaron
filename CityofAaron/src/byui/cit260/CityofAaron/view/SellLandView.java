@@ -13,44 +13,41 @@ import java.util.Scanner;
  * @author bkemble
  */
 public class SellLandView extends ViewBase {
-
-    private static final Scanner keyboard = new Scanner(System.in);
-    private static Game game;
-    
-    @Override
-    public void displayView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-  public SellLandView() {
-        // get the cost of land for this round
         int price = ManageCropsControl.calculateLandPrice();
+        int acresSold = 0;
         
-        // Prompt user to enter the number of acres to sell
-        System.out.format("The value of land is ",price);
-        System.out.print("How many acres of land would you like to sell? ");
-        
-        // Get the user’s input and save it.
-        int toSell;
-        toSell = keyboard.nextInt();
-        
-        // Call the sellLand() method in the control layer to sell the land
-        ManageCropsControl.sellLand(price, toSell, game);
+    public SellLandView(){
+        super();
     }
-
+    
     @Override
     protected String getMessage() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "The value of land is " + price + "per acre.\n"
+                + "";
     }
-
+    
+    /**
+     * Get the set of inputs from the user.
+     * @return 
+     */
     @Override
-    protected String[] getInputs() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String[] getInputs() {
+        
+        // Declare the array to have the number of elements you intend to get 
+        // from the user.
+        String[] inputs = new String[1];
+        
+        inputs[0] = getUserInput("How much land would you like to sell? ");
+        
+        // Repeat for each input you need, putting it into its proper slot in the array.
+        
+        return inputs;
     }
-
     @Override
     public boolean doAction(String[] inputs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int acresToSell = Integer.parseInt(inputs[0]);
+        acresSold = ManageCropsControl.sellLand(price, acresToSell);
+            System.out.println("You have sold " + acresSold + "acres of your land.");
+        return false;
     }
-
 }

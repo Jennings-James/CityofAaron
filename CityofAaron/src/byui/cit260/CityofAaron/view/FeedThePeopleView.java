@@ -36,8 +36,14 @@ public FeedThePeopleView() {
     public boolean doAction(String[] inputs) {
         int currentPopulation = GameControl.game.getCurrentPopulation();
         int wheatStorage = GameControl.game.getWheatStorage();
-        int bushelsToFeed = Integer.parseInt(inputs[0]);
+        int bushelsToFeed = 0; 
         int feedPeople = 0;
+        try {
+        bushelsToFeed = Integer.parseInt(inputs[0]);
+        }
+        catch(NumberFormatException nfe) {
+            System.out.println("please enter a number.");
+        }
         
         feedPeople = ManageCropsControl.feedThePeople(currentPopulation, wheatStorage, bushelsToFeed);
             if (feedPeople == currentPopulation) {

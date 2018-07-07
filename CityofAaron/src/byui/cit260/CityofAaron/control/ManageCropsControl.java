@@ -70,7 +70,7 @@ public class ManageCropsControl {
     return landPrice;
     }
     
-    public static int sellLand(int landPrice, int acresToSell, Game game)
+    public static int sellLand(int landPrice, int acresToSell)
             throws ManageCropsControlException {
         
      //if acresToSell < 0 return -1
@@ -78,18 +78,18 @@ public class ManageCropsControl {
         throw new ManageCropsControlException("Must be a positive amount");
     
      //if acresToSell > acresOwned, return -1
-       int acresOwned = game.getAcresOwned();
+       int acresOwned = GameControl.game.getAcresOwned();
         if (acresToSell > acresOwned)
         throw new ManageCropsControlException("You cannot sell more then you own");
         
      //acresOwned = acresOwned - acresToSell
         acresOwned = acresOwned - acresToSell;
-        game.setAcresOwned(acresOwned); 
+        GameControl.game.setAcresOwned(acresOwned); 
         
      //wheatStorage = wheatStorage + acresToSell * landPrice
-        int wheatStorage = game.getWheatStorage();
+        int wheatStorage = GameControl.game.getWheatStorage();
         wheatStorage = wheatStorage + (acresToSell * landPrice);
-        game.setWheatStorage(wheatStorage);    
+        GameControl.game.setWheatStorage(wheatStorage);    
 
     //return acresOwned    
         return acresOwned;

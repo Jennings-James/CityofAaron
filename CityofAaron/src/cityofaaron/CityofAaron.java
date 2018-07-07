@@ -24,12 +24,27 @@ public class CityofAaron {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        try {
         View startProgramView = new StartProgramView();
         startProgramView.displayView();
-    
+        }
+        catch (Throwable exc) {
+            System.out.println("The program has encountered\n"
+                    + " an error and will now exit.");
+        }
+        finally {
+            printStackTrace();  
+        }
+    }    
+        
+    public static Throwable printStackTrace() {
+       // Not sure how to get the stack trace to print?
+       /* System.out.println(printStackTrace());*/
+        
+        return null;
+        }
       
-    }
+    
     
     
 }
