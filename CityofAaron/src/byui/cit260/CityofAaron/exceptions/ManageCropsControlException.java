@@ -27,12 +27,10 @@ public class ManageCropsControlException extends Exception {
     }
 
     public ManageCropsControlException(String message,
-                                       Throwable cause, 
-                                       boolean enableSuppression, 
-                                       boolean writeableStackTrace) {
+            Throwable cause,
+            boolean enableSuppression,
+            boolean writeableStackTrace) {
         super(message, cause, enableSuppression, writeableStackTrace);
     }
-    
-    
-    
+
 }

@@ -6,12 +6,13 @@
 package byui.cit260.CityofAaron.model;
 
 import java.io.Serializable;
+
 /**
  *
  * @author pesin
  */
 public class Point implements Serializable {
-  
+
     private int row;
     private int column;
 
@@ -35,7 +36,5 @@ public class Point implements Serializable {
     public String toString() {
         return "Point{" + "row=" + row + ", column=" + column + '}';
     }
-    
-    
-    
+
 }

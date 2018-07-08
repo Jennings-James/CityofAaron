@@ -12,17 +12,17 @@ import java.io.Serializable;
  * @author jennings
  */
 public class InventoryItem implements Serializable {
-    
+
     public class Animal extends InventoryItem {
     }
+
     public class Provision extends InventoryItem {
-}
+    }
     private ItemType itemType;
     private int quantity;
     private Condition condition;
-    
-   
-    public InventoryItem () {
+
+    public InventoryItem() {
         //Empty constructor for JavaBeans
     }
 
@@ -52,14 +52,10 @@ public class InventoryItem implements Serializable {
 
     @Override
     public String toString() {
-        return "InventoryItem{" + "itemType=" + itemType 
-               + ", quantity=" + quantity 
-               + ", condition=" + condition 
-               + '}';
+        return "InventoryItem{" + "itemType=" + itemType
+                + ", quantity=" + quantity
+                + ", condition=" + condition
+                + '}';
     }
-    
-    
-    
-    
-    
+
 }

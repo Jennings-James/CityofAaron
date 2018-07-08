@@ -12,14 +12,14 @@ import java.io.Serializable;
  * @author Kemble
  */
 public class Storehouse implements Serializable {
-    
+
     //class instance variables
     private Author[] authors;
     private InventoryItem[] animals;
     private InventoryItem[] tools;
     private InventoryItem[] provisions;
-    
-     public Storehouse(){
+
+    public Storehouse() {
         // Empty constructor for JavaBeans
     }
 
@@ -54,15 +54,14 @@ public class Storehouse implements Serializable {
     public void setProvisions(InventoryItem[] provisions) {
         this.provisions = provisions;
     }
-            
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return "Storehouse{"
                 + " authors=" + authors
                 + ", animals=" + animals
                 + ", tools=" + tools
                 + ", provisions=" + provisions + '}';
     }
-    
+
 }

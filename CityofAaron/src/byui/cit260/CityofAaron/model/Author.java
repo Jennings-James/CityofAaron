@@ -11,14 +11,14 @@ import java.io.Serializable;
  *
  * @author Kemble
  */
-
 public class Author implements Serializable {
+
     public String name;
     public String title;
-    
-    public Author(){
-    
-}
+
+    public Author() {
+
+    }
 
     public String getName() {
         return name;
@@ -35,13 +35,13 @@ public class Author implements Serializable {
     public void setTitle(String title) {
         this.title = title;
     }
-    
-@Override
-public String toString() {
-    return "Author{"
-            + "name=" + name
-            + ", title=" + title + '}';
-            
-}
+
+    @Override
+    public String toString() {
+        return "Author{"
+                + "name=" + name
+                + ", title=" + title + '}';
+
+    }
 
 }

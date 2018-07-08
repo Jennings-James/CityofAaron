@@ -4,20 +4,23 @@
  * and open the template in the editor.
  */
 package byui.cit260.CityofAaron.view;
+
 import java.util.Scanner;
+
 /**
  *
  * @author jennings
  */
 public class ManageCropsMenuView extends ViewBase {
-    
+
     /**
      * Constructor
      */
-    public ManageCropsMenuView(){
+    public ManageCropsMenuView() {
         super();
-        
+
     }
+
     @Override
     protected String getMessage() {
         return "Manage The Crops Menu\n"
@@ -29,36 +32,36 @@ public class ManageCropsMenuView extends ViewBase {
                 + "T-Pay The Tithes And Offerings\n"
                 + "R-Return To The Game Menu\n";
     }
-    
+
     /**
      * Get the set of inputs from the user.
-     * @return 
+     *
+     * @return
      */
     @Override
     public String[] getInputs() {
-        
+
         // Declare the array to have the number of elements you intend to get 
         // from the user.
         String[] inputs = new String[1];
-        
+
         inputs[0] = getUserInput("Plese choose a menu option.");
-        
+
         // Repeat for each input you need, putting it into its proper slot in the array.
-        
         return inputs;
     }
-    
-    
+
     /**
      * Perform the action indicated by the user's input.
+     *
      * @param inputs
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
     @Override
-    public boolean doAction(String[] inputs){
-        
-        switch (inputs[0].trim().toUpperCase()){
+    public boolean doAction(String[] inputs) {
+
+        switch (inputs[0].trim().toUpperCase()) {
             case "B":
                 buyLand();
                 break;
@@ -76,48 +79,46 @@ public class ManageCropsMenuView extends ViewBase {
                 break;
             case "R":
                 return false;
-                
-        } 
-                
-        
+
+        }
+
         return true;
     }
-    
+
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of 
     // complex game stuff in our doAction() method. It will get messy very quickly.
-    
-    
     private void buyLand() {
         BuyLandView view = new BuyLandView();
-            view.displayView();
+        view.displayView();
     }
-    
+
     private void sellLand() {
         SellLandView view = new SellLandView();
-            view.displayView();
+        view.displayView();
     }
-    
+
     private void feedThePeople() {
         FeedThePeopleView view = new FeedThePeopleView();
-            view.displayView();
-           
+        view.displayView();
+
     }
-    
+
     private void plantCrops() {
-        PlantTheCropsView view = new PlantTheCropsView() {};
-             view.displayView();
-            
+        PlantTheCropsView view = new PlantTheCropsView() {
+        };
+        view.displayView();
+
     }
-    
+
     private void payTheTithesAndOfferings() {
         PayTheTithesAndOfferingsView view = new PayTheTithesAndOfferingsView();
-            view.displayView();
+        view.displayView();
     }
-    
-    private void startMainMenu(){
+
+    private void startMainMenu() {
         MainMenuView view = new MainMenuView();
-            view.displayView();
+        view.displayView();
     }
-    
+
 }

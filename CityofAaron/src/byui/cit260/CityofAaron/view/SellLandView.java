@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.CityofAaron.view;
+
 import byui.cit260.CityofAaron.control.ManageCropsControl;
 import byui.cit260.CityofAaron.model.Game;
 import java.util.Scanner;
@@ -13,41 +14,43 @@ import java.util.Scanner;
  * @author bkemble
  */
 public class SellLandView extends ViewBase {
-        int price = ManageCropsControl.calculateLandPrice();
-        int acresSold = 0;
-        
-    public SellLandView(){
+
+    int price = ManageCropsControl.calculateLandPrice();
+    int acresSold = 0;
+
+    public SellLandView() {
         super();
     }
-    
+
     @Override
     protected String getMessage() {
-        return "The value of land is " + price + "per acre.\n"
-                + "";
+        return "The value of land is " + price + " bushels per acre.";
     }
-    
+
     /**
      * Get the set of inputs from the user.
-     * @return 
+     *
+     * @return
      */
     @Override
     public String[] getInputs() {
-        
+
         // Declare the array to have the number of elements you intend to get 
         // from the user.
         String[] inputs = new String[1];
-        
+
         inputs[0] = getUserInput("How much land would you like to sell? ");
-        
+
         // Repeat for each input you need, putting it into its proper slot in the array.
-        
         return inputs;
     }
+
     @Override
     public boolean doAction(String[] inputs) {
-        int acresToSell = Integer.parseInt(inputs[0]);
+        int acresToSell = 0;
+        acresToSell = Integer.parseInt(inputs[0]);
         acresSold = ManageCropsControl.sellLand(price, acresToSell);
-            System.out.println("You have sold " + acresSold + "acres of your land.");
+        System.out.println("You have sold " + acresSold + "acres of your land.");
         return false;
     }
 }

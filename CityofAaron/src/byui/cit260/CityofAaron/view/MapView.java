@@ -4,57 +4,58 @@
  * and open the template in the editor.
  */
 package byui.cit260.CityofAaron.view;
+
 import byui.cit260.CityofAaron.control.*;
 import byui.cit260.CityofAaron.model.*;
 import cityofaaron.CityofAaron;
 import java.util.Arrays;
+
 /**
  *
  * @author kemblesque
  */
 public class MapView extends ViewBase {
 
-   
-    
     /*
     *Constuctor
-    */
+     */
     public MapView() {
         super();
-    } 
-    
+    }
+
     @Override
     protected String getMessage() {
         return "The Map\n"
-             + "-----------\n"
-             + "|A|B|C|D|E|\n"
-             + "-----------\n"
-             + "|F|G|H|I|J|\n"
-             + "-----------\n"
-             + "|K|L|M|N|O|\n"
-             + "-----------\n"
-             + "|P|Q|R|S|T|\n"
-             + "-----------\n"
-             + "|U|V|W|X|Y|\n"
-             + "-----------\n"
-             + "select Z to exit";
+                + "-----------\n"
+                + "|A|B|C|D|E|\n"
+                + "-----------\n"
+                + "|F|G|H|I|J|\n"
+                + "-----------\n"
+                + "|K|L|M|N|O|\n"
+                + "-----------\n"
+                + "|P|Q|R|S|T|\n"
+                + "-----------\n"
+                + "|U|V|W|X|Y|\n"
+                + "-----------\n"
+                + "select Z to exit";
     }
+
     @Override
     public String[] getInputs() {
-        
+
         // Declare the array to have the number of elements you intend to get 
         // from the user.
         String[] inputs = new String[1];
-        
+
         inputs[0] = getUserInput("Please choose where you would like to Go!");
-        
+
         // Repeat for each input you need, putting it into its proper slot in the array.
-        
         return inputs;
     }
+
     @Override
-    public boolean doAction(String[] inputs){
-        
+    public boolean doAction(String[] inputs) {
+
         switch (inputs[0].trim().toUpperCase()) {
             case "A":
                 System.out.println(Map.theMap[0][0]);
@@ -134,12 +135,13 @@ public class MapView extends ViewBase {
                 gameMenu();
                 break;
         }
-        
+
         return true;
     }
+
     private void gameMenu() {
         GameMenuView view = new GameMenuView();
         view.displayView();
     }
-       
+
 }

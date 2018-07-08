@@ -8,13 +8,12 @@ package byui.cit260.CityofAaron.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
+
 /**
  *
  * @author jennings
  */
 public class Game implements Serializable {
-    
-    
 
     private Player thePlayer;
     private Map theMap;
@@ -28,7 +27,7 @@ public class Game implements Serializable {
     private int acresPlanted;
     private int wheatHarvested;
     private double tithePaid;
-    
+
     public InventoryItem getInventory() {
         return inventory;
     }
@@ -36,9 +35,10 @@ public class Game implements Serializable {
     public void setInventory(InventoryItem inventory) {
         this.inventory = inventory;
     }
-    public Game(){
+
+    public Game() {
         // Empty constructor for JavaBeans
-    } 
+    }
 
     public Player getThePlayer() {
         return thePlayer;
@@ -63,7 +63,7 @@ public class Game implements Serializable {
     public void setTheStorehouse(Storehouse theStorehouse) {
         this.theStorehouse = theStorehouse;
     }
-    
+
     public int getCurrentPopulation() {
         return currentPopulation;
     }
@@ -127,23 +127,16 @@ public class Game implements Serializable {
     public void setTithePaid(double tithePaid) {
         this.tithePaid = tithePaid;
     }
-   
-    
-    
-   
 
     @Override
     public String toString() {
-        return "Game{ theplayer " + thePlayer 
+        return "Game{ theplayer " + thePlayer
                 + "themap=" + theMap
-               + ", thestorehouse=" + theStorehouse 
-               + ", currentPopulation=" + currentPopulation
-               + ", acresOwned=" + acresOwned 
-               + ", wheatStorage=" + wheatStorage  
-               + ", currentYear=" + currentYear + '}';
+                + ", thestorehouse=" + theStorehouse
+                + ", currentPopulation=" + currentPopulation
+                + ", acresOwned=" + acresOwned
+                + ", wheatStorage=" + wheatStorage
+                + ", currentYear=" + currentYear + '}';
     }
-    
-    
-    
-    
+
 }

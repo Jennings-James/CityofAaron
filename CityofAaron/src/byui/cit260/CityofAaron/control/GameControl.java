@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.CityofAaron.control;
+
 import java.util.ArrayList;
 import java.io.Serializable;
 import cityofaaron.CityofAaron;
@@ -14,15 +15,15 @@ import byui.cit260.CityofAaron.model.*;
  * @author jennings
  */
 public class GameControl implements Serializable {
-    
-    
+
     //Constructor
-    public GameControl(){
-        
+    public GameControl() {
+
     }
     public static Game game;
-    
-    public static void creatNewGame (String name) {
+
+    public static void creatNewGame(String name) {
+        Game game = CityofAaron.getCurrentGame();
         //Created the game object.
         game = new Game();
         CityofAaron.setCurrentGame(game);
@@ -38,36 +39,40 @@ public class GameControl implements Serializable {
         //createe the Storehouse object.
         Storehouse storehouse = new Storehouse();
         creatAnimalsList();
-    } 
-          
+    }
+
     public static void creatAnimalsList() {
+        Game game = CityofAaron.getCurrentGame();
         ArrayList<Animal> animals = new ArrayList<>();
-        
+
         animals.add(new Animal("chikens", 5));
-        animals.add(new Animal("pigs", 2));  
-        animals.add(new Animal("horses", 10));  
+        animals.add(new Animal("pigs", 2));
+        animals.add(new Animal("horses", 10));
         animals.add(new Animal("lamas", 12));
         animals.add(new Animal("cows", 7));
-        
+
         game.setAnimals(animals);
-      }  
-          
-    public static void animalsInStorehouse(){
-        System.out.println ("Current Animals:\n");
-        for(int i = 0; i < game.getAnimals().size(); i++) {
-            System.out.println(game.getAnimals().get(i).getName() + "-" 
-                + game.getAnimals().get(i).getAge());
-       } 
-       
-      
-    } 
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    }
+
+    public static void animalsInStorehouse() {
+        Game game = CityofAaron.getCurrentGame();
+        System.out.println("Current Animals:\n");
+        for (int i = 0; i < game.getAnimals().size(); i++) {
+            System.out.println(game.getAnimals().get(i).getName() + "-"
+                    + game.getAnimals().get(i).getAge());
+        }
+
+    }
+
+    public static Animal findOldestAnimal() {
+        Game game = CityofAaron.getCurrentGame();
+        Animal oldest = game.getAnimals().get(0);
+        for (Animal animal : game.getAnimals()) {
+            if (animal.getAge() > oldest.getAge()) {
+                oldest = animal;
+            }
+        }
+        return oldest;
+    }
+
 }

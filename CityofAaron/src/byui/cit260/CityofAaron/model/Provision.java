@@ -6,17 +6,18 @@
 package byui.cit260.CityofAaron.model;
 
 import java.io.Serializable;
+
 /**
  *
  * @author jennings
  */
 public class Provision implements Serializable {
-    
+
     private String name;
     private boolean perishable;
-    
+
     public Provision() {
-         // Empty constructor for JavaBeans
+        // Empty constructor for JavaBeans
     }
 
     public String getName() {
@@ -37,10 +38,9 @@ public class Provision implements Serializable {
 
     @Override
     public String toString() {
-        return "Provision{" + "name=" + name 
-                + ", perishable=" + perishable 
+        return "Provision{" + "name=" + name
+                + ", perishable=" + perishable
                 + '}';
     }
-    
-    
+
 }

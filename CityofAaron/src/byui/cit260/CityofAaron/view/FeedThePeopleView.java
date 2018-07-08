@@ -4,14 +4,16 @@
  * and open the template in the editor.
  */
 package byui.cit260.CityofAaron.view;
+
 import byui.cit260.CityofAaron.control.*;
 
-public class FeedThePeopleView extends ViewBase{
-    
+public class FeedThePeopleView extends ViewBase {
+
     //Constructor
-public FeedThePeopleView() {
-    super();
-}
+    public FeedThePeopleView() {
+        super();
+    }
+
     @Override
     protected String getMessage() {
         return "Your people are hungry and will starve if you do not give\n"
@@ -23,39 +25,34 @@ public FeedThePeopleView() {
         // Declare the array to have the number of elements you intend to get 
         // from the user.
         String[] inputs = new String[1];
-        
+
         inputs[0] = getUserInput("How many bushels do you want to feed the people?", true);
-        
+
         // Repeat for each input you need, putting it into its proper slot in the array.
-        
         return inputs;
     }
-    
 
     @Override
     public boolean doAction(String[] inputs) {
         int currentPopulation = GameControl.game.getCurrentPopulation();
         int wheatStorage = GameControl.game.getWheatStorage();
-        int bushelsToFeed = 0; 
+        int bushelsToFeed = 0;
         int feedPeople = 0;
         try {
-        bushelsToFeed = Integer.parseInt(inputs[0]);
-        }
-        catch(NumberFormatException nfe) {
+            bushelsToFeed = Integer.parseInt(inputs[0]);
+        } catch (NumberFormatException nfe) {
             System.out.println("please enter a number.");
         }
-        
+
         feedPeople = ManageCropsControl.feedThePeople(currentPopulation, wheatStorage, bushelsToFeed);
-            if (feedPeople == currentPopulation) {
-                System.out.println("Congradulations no one starved");
-                GameControl.game.setWheatStorage(wheatStorage - bushelsToFeed);
-            }
-            else {
-                GameControl.game.setWheatStorage(wheatStorage - bushelsToFeed);  
-            }
-            return false;
-            
-            
+        if (feedPeople == currentPopulation) {
+            System.out.println("Congradulations no one starved");
+            GameControl.game.setWheatStorage(wheatStorage - bushelsToFeed);
+        } else {
+            GameControl.game.setWheatStorage(wheatStorage - bushelsToFeed);
+        }
+        return false;
+
     }
-    
+
 }

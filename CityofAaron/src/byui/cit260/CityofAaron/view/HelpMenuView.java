@@ -4,19 +4,22 @@
  * and open the template in the editor.
  */
 package byui.cit260.CityofAaron.view;
+
 import java.util.Scanner;
+
 /**
  *
  * @author jennings
  */
 public class HelpMenuView extends ViewBase {
-    
+
     /**
      * Constructor
      */
-    public HelpMenuView(){
+    public HelpMenuView() {
         super();
     }
+
     @Override
     protected String getMessage() {
         return "Help Menu\n"
@@ -29,36 +32,35 @@ public class HelpMenuView extends ViewBase {
                 + "  provisions and tools in the city of Aaron?\n"
                 + "6-Back to Main Menu";
     }
-    
-    
+
     /**
      * Get the set of inputs from the user.
-     * @return 
+     *
+     * @return
      */
     @Override
     public String[] getInputs() {
-        
+
         // Declare the array to have the number of elements you intend to get 
         // from the user.
         String[] inputs = new String[1];
-        
+
         inputs[0] = getUserInput("Enter the number for help.");
-        
+
         // Repeat for each input you need, putting it into its proper slot in the array.
-        
         return inputs;
     }
-    
-    
+
     /**
      * Perform the action indicated by the user's input.
+     *
      * @param inputs
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
     @Override
-    public boolean doAction(String[] inputs){
-        
+    public boolean doAction(String[] inputs) {
+
         switch (inputs[0].trim()) {
             case "1":
                 System.out.println("The goals of the game are\n"
@@ -91,18 +93,15 @@ public class HelpMenuView extends ViewBase {
                 System.out.println("Good luck in the game");
                 return false;
         }
-  
+
         return true;
     }
-    
+
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of 
     // complex game stuff in our doAction() method. It will get messy very quickly.
-    
-    
-    private void startMainMenu(){
+    private void startMainMenu() {
         MainMenuView view = new MainMenuView();
         view.displayView();
     }
 }
-
