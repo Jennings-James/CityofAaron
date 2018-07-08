@@ -8,6 +8,7 @@ package byui.cit260.CityofAaron.view;
 import byui.cit260.CityofAaron.control.ManageCropsControl;
 import byui.cit260.CityofAaron.model.Game;
 import java.util.Scanner;
+import byui.cit260.CityofAaron.exceptions.*;
 
 /**
  *
@@ -48,8 +49,20 @@ public class SellLandView extends ViewBase {
     @Override
     public boolean doAction(String[] inputs) {
         int acresToSell = 0;
+        try {
         acresToSell = Integer.parseInt(inputs[0]);
-        acresSold = ManageCropsControl.sellLand(price, acresToSell);
+        }
+        catch (NumberFormatException nfe){
+               System.out.println("Please enter a number"); 
+                       }
+        try {
+            
+        
+               acresSold = ManageCropsControl.sellLand(price, acresToSell);
+    }
+        catch (ManageCropsControlException ie){
+            System.out.println(ie.getMessage());
+        }
         System.out.println("You have sold " + acresSold + "acres of your land.");
         return false;
     }
