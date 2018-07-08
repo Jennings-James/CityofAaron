@@ -70,7 +70,8 @@ public class BuyLandView extends ViewBase {
         }
         try {
             acresBought = ManageCropsControl.sellLand(price, acresToBuy);
-        } catch (ManageCropsControlException ie) {
+        }
+        catch (ManageCropsControlException ie) {
             System.out.println(ie.getMessage());
         }
         System.out.println("You have sold " + acresBought + "acres of your land.");
