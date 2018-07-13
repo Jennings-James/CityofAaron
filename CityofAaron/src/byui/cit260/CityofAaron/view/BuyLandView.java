@@ -13,7 +13,6 @@ import byui.cit260.CityofAaron.exceptions.*;
  *
  * @author pesin
  */
-
 public class BuyLandView extends ViewBase {
 
     int price = ManageCropsControl.calculateLandPrice();
@@ -70,11 +69,10 @@ public class BuyLandView extends ViewBase {
         }
         try {
             acresBought = ManageCropsControl.sellLand(price, acresToBuy);
-        }
-        catch (ManageCropsControlException ie) {
+        } catch (ManageCropsControlException ie) {
             ErrorView.display(this.getClass().getName(), ie.getMessage());
         }
-         this.console.println("You have sold " + acresBought + "acres of your land.");
+        this.console.println("You have sold " + acresBought + "acres of your land.");
         return false;
     }
 

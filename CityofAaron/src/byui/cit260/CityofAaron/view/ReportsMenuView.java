@@ -39,8 +39,8 @@ public class ReportsMenuView extends ViewBase {
                 + "2 - View the animals with ages in the Storehouse\n"
                 + "3 - View the tools in the storehouse\n"
                 + "4 - View the provisions in the storehouse\n"
-                + "\n"
-                + "5 - Return to the Game Menu.\n"
+                + "5 - Print the animals report.\n"
+                + "6 - Return to the Game Menu.\n"
                 + "-------------------------------------\n";
     }
 
@@ -85,7 +85,10 @@ public class ReportsMenuView extends ViewBase {
             case "4":
                 provisionsInStorehouse();
                 break;
-            case "5": // return to main menu
+            case "5":
+                printAnimals();
+                break;
+            case "6": // return to main menu
                 return false;
             default:
                 this.console.println("\"" + inputs[0].trim() + "\" is not a valid choice.");
@@ -142,5 +145,10 @@ public class ReportsMenuView extends ViewBase {
         }
         this.console.println("The oldest animal in the Sotrehouse is  " + oldest);
         return oldest;
+    }
+
+    public void printAnimals() {
+        PrintAnimalsView view = new PrintAnimalsView();
+        view.displayView();
     }
 }

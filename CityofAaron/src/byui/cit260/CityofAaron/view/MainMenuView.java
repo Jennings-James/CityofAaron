@@ -30,7 +30,6 @@ public class MainMenuView extends ViewBase {
     *Get the inputs fromthe user.
     *@return
      */
-
     @Override
     public String[] getInputs() {
 
@@ -65,7 +64,7 @@ public class MainMenuView extends ViewBase {
                 helpMenu();
                 break;
             case "E":
-                 this.console.println("Nice to meet you. Come again");
+                this.console.println("Nice to meet you. Come again");
                 return false;
         }
 
@@ -83,8 +82,8 @@ public class MainMenuView extends ViewBase {
     }
 
     private void loadSavedGame() {
-         LoadSavedGameView view = new LoadSavedGameView();
-         view.displayView();
+        LoadSavedGameView view = new LoadSavedGameView();
+        view.displayView();
     }
 
 }

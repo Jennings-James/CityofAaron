@@ -13,14 +13,15 @@ import java.io.*;
  * @author jennings
  */
 public class ErrorView {
+
     private static PrintWriter console = CityofAaron.getOutFile();
     private static PrintWriter log = CityofAaron.getLogFile();
-    
+
     public static void display(String className, String errorMessage) {
         console.println(
-            "\n---- ERROR ---------------------------------------------------"
-            + "\n" + errorMessage
-            + "\n-------------------------------------------------------------");
+                "\n---- ERROR ---------------------------------------------------"
+                + "\n" + errorMessage
+                + "\n-------------------------------------------------------------");
         log.printf("%n%n%n", className + " - " + errorMessage);
     }
 }

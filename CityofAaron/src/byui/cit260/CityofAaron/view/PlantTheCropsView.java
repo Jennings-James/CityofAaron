@@ -56,7 +56,7 @@ public class PlantTheCropsView extends ViewBase {
         }
         int landOwned = GameControl.game.getAcresOwned();
         int wheatStored = GameControl.game.getWheatStorage();
-        
+
         try {
             acresPlanted = ManageCropsControl.plantCrops(numAcres, wheatStored, landOwned);
         } catch (ManageCropsControlException ie) {

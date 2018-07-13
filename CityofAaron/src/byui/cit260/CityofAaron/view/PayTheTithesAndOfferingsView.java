@@ -79,7 +79,7 @@ public class PayTheTithesAndOfferingsView extends ViewBase {
         }
         /*int newTithe = (int) tithe;*/
         GameControl.game.setTithePaid(tithe);
-         this.console.println("You have paid " + tithe + " bushels of wheat in tihing.");
+        this.console.println("You have paid " + tithe + " bushels of wheat in tihing.");
         return false;
     }
 

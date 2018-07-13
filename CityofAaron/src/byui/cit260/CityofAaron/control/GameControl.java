@@ -13,6 +13,7 @@ import byui.cit260.CityofAaron.exceptions.*;
 import byui.cit260.CityofAaron.view.ErrorView;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author jennings
@@ -57,36 +58,50 @@ public class GameControl implements Serializable {
         game.setAnimals(animals);
     }
 
-   public static void saveGame(Game game, String filePath) 
-       throws GameControlExceptions, IOException {
-       if (game == null) {
-           throw new GameControlExceptions("There has been an error saving the Game");
-       }
-       if (filePath == null) {
-           throw new GameControlExceptions("There has been an error please enter a file."); 
-       }
-       try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath))) {
-           out.writeObject(game);
-       }
-       catch (IOException ex) {
-           throw new IOException();
-       }
-   }
+    public static void saveGame(Game game, String filePath)
+            throws GameControlExceptions, IOException {
+        if (game == null) {
+            throw new GameControlExceptions("There has been an error saving the Game");
+        }
+        if (filePath == null) {
+            throw new GameControlExceptions("There has been an error please enter a file.");
+        }
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            out.writeObject(game);
+        } catch (IOException ex) {
+            throw new IOException();
+        }
+    }
 
-   public static Game getGame(String filePath)
-       throws GameControlExceptions, IOException {
-       if (filePath == null) {
-           throw new GameControlExceptions("There has been an error please enter a file."); 
-       }
-       try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filePath))) {
-           Game game = (Game) in.readObject();
-           CityofAaron.setCurrentGame(game);
-       }catch (IOException ex) {
-           throw new IOException();
-   }    catch (ClassNotFoundException ex) {
+    public static Game getGame(String filePath)
+            throws GameControlExceptions, IOException {
+        if (filePath == null) {
+            throw new GameControlExceptions("There has been an error please enter a file.");
+        }
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filePath))) {
+            Game game = (Game) in.readObject();
+            CityofAaron.setCurrentGame(game);
+        } catch (IOException ex) {
+            throw new IOException();
+        } catch (ClassNotFoundException ex) {
             ErrorView.display(filePath, "Class not found error");
         }
-   
-       return game;
-   }
+
+        return game;
+    }
+
+    public static void printReport(String file, String filePath)
+            throws GameControlExceptions, IOException {
+        if (filePath == null) {
+            throw new GameControlExceptions("There has been an error please enter a file.");
+        }
+        if (file == null) {
+            throw new GameControlExceptions("There has been an error please enter a file.");
+        }
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            out.writeObject(file);
+        } catch (IOException ex) {
+            throw new IOException();
+        }
+    }
 }

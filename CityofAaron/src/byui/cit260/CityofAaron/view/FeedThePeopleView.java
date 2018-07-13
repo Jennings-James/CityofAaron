@@ -46,7 +46,7 @@ public class FeedThePeopleView extends ViewBase {
 
         feedPeople = ManageCropsControl.feedThePeople(currentPopulation, wheatStorage, bushelsToFeed);
         if (feedPeople == currentPopulation) {
-             this.console.println("Congradulations no one starved");
+            this.console.println("Congradulations no one starved");
             GameControl.game.setWheatStorage(wheatStorage - bushelsToFeed);
         } else {
             GameControl.game.setWheatStorage(wheatStorage - bushelsToFeed);

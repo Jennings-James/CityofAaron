@@ -87,7 +87,7 @@ public class GameMenuView extends ViewBase {
     }
 
     private void liveYear() {
-         this.console.println("you will live shortly");
+        this.console.println("you will live shortly");
     }
 
     private void reportsMenu() {

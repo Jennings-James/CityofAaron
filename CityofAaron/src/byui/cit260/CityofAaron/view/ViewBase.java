@@ -9,17 +9,15 @@ import cityofaaron.CityofAaron;
 import java.util.Scanner;
 import java.io.*;
 
-
 /**
  *
  * @author jennings
  */
 public abstract class ViewBase implements View {
 
-   
     protected final BufferedReader keyboard = CityofAaron.getInFile();
     protected final PrintWriter console = CityofAaron.getOutFile();
-    
+
     /*
     Constructoe
      */
@@ -62,7 +60,7 @@ public abstract class ViewBase implements View {
             //only print if it is non-null.
             String message = getMessage();
             if (message != null) {
-                 this.console.println(getMessage());
+                this.console.println(getMessage());
             }
 
             String[] inputs = getInputs();
@@ -86,7 +84,7 @@ public abstract class ViewBase implements View {
 
         while (inputReceived == false) {
 
-             this.console.println(prompt);
+            this.console.println(prompt);
             input = keyboard.nextLine();
 
             // Make sure we avoid a null-pointer error.
