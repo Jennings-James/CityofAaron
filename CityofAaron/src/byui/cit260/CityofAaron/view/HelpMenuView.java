@@ -63,13 +63,13 @@ public class HelpMenuView extends ViewBase {
 
         switch (inputs[0].trim()) {
             case "1":
-                System.out.println("The goals of the game are\n"
+                 this.console.println("The goals of the game are\n"
                         + "1st-Keep the people in the city feed.\n"
                         + "2nd-Manage the land and the crops\n"
                         + "    to help the city prosper.");
                 break;
             case "2":
-                System.out.println(" The city of Aaron is mentioned briefly in\n"
+                 this.console.println(" The city of Aaron is mentioned briefly in\n"
                         + "Alma 8:13 in the Book of Mormon.\n"
                         + "Now when the people had said this, and withstood all\n"
                         + "his words, and reviled him, and spit upon him, and\n"
@@ -78,19 +78,19 @@ public class HelpMenuView extends ViewBase {
                         + "which was called Aaron");
                 break;
             case "3":
-                System.out.println("Return to the Main Menu and select View Map");
+                 this.console.println("Return to the Main Menu and select View Map");
                 break;
             case "4":
-                System.out.println("After you start a game select Move to a new\n"
+                 this.console.println("After you start a game select Move to a new\n"
                         + " location from the Game Menu");
                 break;
             case "5":
-                System.out.println("After you start a game select Reports Menu\n"
+                 this.console.println("After you start a game select Reports Menu\n"
                         + "from the Game Menu then select the item you wish to\n"
                         + "view from the Reports Menu");
                 break;
             case "6":
-                System.out.println("Good luck in the game");
+                 this.console.println("Good luck in the game");
                 return false;
         }
 

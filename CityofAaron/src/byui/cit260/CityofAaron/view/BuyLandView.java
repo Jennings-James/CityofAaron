@@ -66,15 +66,15 @@ public class BuyLandView extends ViewBase {
         try {
             acresToBuy = Integer.parseInt(inputs[0]);
         } catch (NumberFormatException nfe) {
-            System.out.println("please enter a number.");
+            ErrorView.display(this.getClass().getName(), "please enter a number.");
         }
         try {
             acresBought = ManageCropsControl.sellLand(price, acresToBuy);
         }
         catch (ManageCropsControlException ie) {
-            System.out.println(ie.getMessage());
+            ErrorView.display(this.getClass().getName(), ie.getMessage());
         }
-        System.out.println("You have sold " + acresBought + "acres of your land.");
+         this.console.println("You have sold " + acresBought + "acres of your land.");
         return false;
     }
 

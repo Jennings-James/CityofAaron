@@ -69,17 +69,17 @@ public class PayTheTithesAndOfferingsView extends ViewBase {
             percent = Integer.parseInt(inputs[0]);
 
         } catch (NumberFormatException nfe) {
-            System.out.println("please enter a number.");
+            ErrorView.display(this.getClass().getName(), "please enter a number.");
         }
         try {
             tithe = ManageCropsControl.payTheTithesAndOfferings(percent, wheatHarvested);
         } catch (ManageCropsControlException ie) {
-            System.out.println(ie.getMessage());
+            ErrorView.display(this.getClass().getName(), ie.getMessage());
             return false;
         }
         /*int newTithe = (int) tithe;*/
         GameControl.game.setTithePaid(tithe);
-        System.out.println("You have paid " + tithe + " bushels of wheat in tihing.");
+         this.console.println("You have paid " + tithe + " bushels of wheat in tihing.");
         return false;
     }
 

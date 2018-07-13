@@ -41,12 +41,12 @@ public class FeedThePeopleView extends ViewBase {
         try {
             bushelsToFeed = Integer.parseInt(inputs[0]);
         } catch (NumberFormatException nfe) {
-            System.out.println("please enter a number.");
+            ErrorView.display(this.getClass().getName(), "please enter a number.");
         }
 
         feedPeople = ManageCropsControl.feedThePeople(currentPopulation, wheatStorage, bushelsToFeed);
         if (feedPeople == currentPopulation) {
-            System.out.println("Congradulations no one starved");
+             this.console.println("Congradulations no one starved");
             GameControl.game.setWheatStorage(wheatStorage - bushelsToFeed);
         } else {
             GameControl.game.setWheatStorage(wheatStorage - bushelsToFeed);

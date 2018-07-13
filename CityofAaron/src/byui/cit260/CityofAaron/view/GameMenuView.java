@@ -27,7 +27,7 @@ public class GameMenuView extends ViewBase {
                 + "M - Manage Crops\n"
                 + "L - Live the Year\n"
                 + "R - Reports Menu\n"
-                + "S - Save Gmme\n"
+                + "S - Save Game\n"
                 + "Q - Quit to the Main Menu\n";
     }
 
@@ -66,7 +66,7 @@ public class GameMenuView extends ViewBase {
                 saveGame();
                 break;
             case "Q":
-                System.out.println("Returning you to the Main menu");
+                this.console.println("Returning you to the Main menu");
                 return false;
         }
         return true;
@@ -78,7 +78,7 @@ public class GameMenuView extends ViewBase {
     }
 
     private void moveLocation() {
-        System.out.println("coming soon");
+        this.console.println("coming soon");
     }
 
     private void manageCrops() {
@@ -87,7 +87,7 @@ public class GameMenuView extends ViewBase {
     }
 
     private void liveYear() {
-        System.out.println("you will live shortly");
+         this.console.println("you will live shortly");
     }
 
     private void reportsMenu() {
@@ -96,6 +96,7 @@ public class GameMenuView extends ViewBase {
     }
 
     private void saveGame() {
-        System.out.println("No saving yet");
+        SaveGameView view = new SaveGameView();
+        view.displayView();
     }
 }

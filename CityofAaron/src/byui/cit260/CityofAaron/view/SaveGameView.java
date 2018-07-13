@@ -10,26 +10,21 @@ import byui.cit260.CityofAaron.control.GameControl;
 import byui.cit260.CityofAaron.model.*;
 import cityofaaron.CityofAaron;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author jennings
  */
-public class LoadSavedGameView extends ViewBase {
+public class SaveGameView extends ViewBase {
 
-    /*
-    *Constructor
-     */
-    public LoadSavedGameView() {
+    public SaveGameView() {
         super();
     }
 
     @Override
     protected String getMessage() {
-        return "To load a saved Game you must know the exact file location in\n"
-                + "which it is saved.";
+        return "";
+
     }
 
     @Override
@@ -39,28 +34,26 @@ public class LoadSavedGameView extends ViewBase {
         // from the user.
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("Please enter the file location.");
+        inputs[0] = getUserInput("Please enter the file to save to");
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
     }
 
-    /*
-    *This will be coded to find the saved data andload it.
-     */
     @Override
     public boolean doAction(String[] inputs) {
         String filePath = inputs[0];
+        Game game = CityofAaron.getCurrentGame();
         try {
             try {
-                GameControl.getGame(filePath);
+                GameControl.saveGame(game, filePath);
             } catch (GameControlExceptions ie) {
                 ErrorView.display(filePath, "The file is incorrect.");
             }
-        } catch (IOException ex) {
+        } catch (IOException ie) {
             ErrorView.display(filePath, "I/O error");
         }
-        this.console.println("The game has been loaded from " + filePath);
+        this.console.println("The game has been saved to " + filePath);
         return false;
     }
 

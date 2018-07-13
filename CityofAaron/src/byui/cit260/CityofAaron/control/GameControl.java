@@ -6,10 +6,13 @@
 package byui.cit260.CityofAaron.control;
 
 import java.util.ArrayList;
-import java.io.Serializable;
+import java.io.*;
 import cityofaaron.CityofAaron;
 import byui.cit260.CityofAaron.model.*;
-
+import byui.cit260.CityofAaron.exceptions.*;
+import byui.cit260.CityofAaron.view.ErrorView;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author jennings
@@ -20,7 +23,7 @@ public class GameControl implements Serializable {
     public GameControl() {
 
     }
-    public static Game game;
+    public static Game game = CityofAaron.getCurrentGame();
 
     public static void creatNewGame(String name) {
         Game game = CityofAaron.getCurrentGame();
@@ -54,25 +57,36 @@ public class GameControl implements Serializable {
         game.setAnimals(animals);
     }
 
-    public static void animalsInStorehouse() {
-        Game game = CityofAaron.getCurrentGame();
-        System.out.println("Current Animals:\n");
-        for (int i = 0; i < game.getAnimals().size(); i++) {
-            System.out.println(game.getAnimals().get(i).getName() + "-"
-                    + game.getAnimals().get(i).getAge());
+   public static void saveGame(Game game, String filePath) 
+       throws GameControlExceptions, IOException {
+       if (game == null) {
+           throw new GameControlExceptions("There has been an error saving the Game");
+       }
+       if (filePath == null) {
+           throw new GameControlExceptions("There has been an error please enter a file."); 
+       }
+       try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath))) {
+           out.writeObject(game);
+       }
+       catch (IOException ex) {
+           throw new IOException();
+       }
+   }
+
+   public static Game getGame(String filePath)
+       throws GameControlExceptions, IOException {
+       if (filePath == null) {
+           throw new GameControlExceptions("There has been an error please enter a file."); 
+       }
+       try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filePath))) {
+           Game game = (Game) in.readObject();
+           CityofAaron.setCurrentGame(game);
+       }catch (IOException ex) {
+           throw new IOException();
+   }    catch (ClassNotFoundException ex) {
+            ErrorView.display(filePath, "Class not found error");
         }
-
-    }
-
-    public static Animal findOldestAnimal() {
-        Game game = CityofAaron.getCurrentGame();
-        Animal oldest = game.getAnimals().get(0);
-        for (Animal animal : game.getAnimals()) {
-            if (animal.getAge() > oldest.getAge()) {
-                oldest = animal;
-            }
-        }
-        return oldest;
-    }
-
+   
+       return game;
+   }
 }

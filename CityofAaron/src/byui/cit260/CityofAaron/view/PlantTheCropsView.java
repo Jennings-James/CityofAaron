@@ -48,17 +48,23 @@ public class PlantTheCropsView extends ViewBase {
 
     @Override
     public boolean doAction(String[] inputs) {
-        int numAcres = Integer.parseInt(inputs[0]);
-        int wheatStored = GameControl.game.getWheatStorage();
+        int numAcres = 0;
+        try {
+            numAcres = Integer.parseInt(inputs[0]);
+        } catch (NumberFormatException nfe) {
+            ErrorView.display(this.getClass().getName(), "please enter a number.");
+        }
         int landOwned = GameControl.game.getAcresOwned();
+        int wheatStored = GameControl.game.getWheatStorage();
+        
         try {
             acresPlanted = ManageCropsControl.plantCrops(numAcres, wheatStored, landOwned);
         } catch (ManageCropsControlException ie) {
-            System.out.println(ie.getMessage());
+            ErrorView.display(this.getClass().getName(), ie.getMessage());
             return false;
         }
         GameControl.game.setAcresPlanted(acresPlanted);
-        System.out.println("You have planted " + acresPlanted + "acres of wheat.");
+        this.console.println("You have planted " + acresPlanted + "acres of wheat.");
         return false;
     }
 }

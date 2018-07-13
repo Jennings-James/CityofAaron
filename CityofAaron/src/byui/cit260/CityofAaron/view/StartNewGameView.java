@@ -58,7 +58,7 @@ public class StartNewGameView extends ViewBase {
         // If the player presses enter error. 
         // error will return to Main Menu.
         if (inputs[0] == null || inputs[0].equals("")) {
-            System.out.println("Better to never try than to fail.\n"
+             this.console.println("Better to never try than to fail.\n"
                     + "Removing you to the Main Menu: ");
             return false;
         }
@@ -97,7 +97,7 @@ public class StartNewGameView extends ViewBase {
         
         CityofAaron.setCurrentGame(game);
          */
-        System.out.println("Welcome to The City of Aaron: "
+         this.console.println("Welcome to The City of Aaron: "
                 + CityofAaron.getCurrentGame().getThePlayer().getName() + "!\n");
 
     }

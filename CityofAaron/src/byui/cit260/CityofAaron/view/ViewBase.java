@@ -5,7 +5,10 @@
  */
 package byui.cit260.CityofAaron.view;
 
+import cityofaaron.CityofAaron;
 import java.util.Scanner;
+import java.io.*;
+
 
 /**
  *
@@ -13,6 +16,10 @@ import java.util.Scanner;
  */
 public abstract class ViewBase implements View {
 
+   
+    protected final BufferedReader keyboard = CityofAaron.getInFile();
+    protected final PrintWriter console = CityofAaron.getOutFile();
+    
     /*
     Constructoe
      */
@@ -55,7 +62,7 @@ public abstract class ViewBase implements View {
             //only print if it is non-null.
             String message = getMessage();
             if (message != null) {
-                System.out.println(getMessage());
+                 this.console.println(getMessage());
             }
 
             String[] inputs = getInputs();
@@ -73,13 +80,13 @@ public abstract class ViewBase implements View {
      */
     protected String getUserInput(String prompt, boolean allowEmpty) {
 
-        Scanner keyboard = new Scanner(System.in);
+        Scanner keyboard = new Scanner(this.keyboard);
         String input = "";
         boolean inputReceived = false;
 
         while (inputReceived == false) {
 
-            System.out.println(prompt);
+             this.console.println(prompt);
             input = keyboard.nextLine();
 
             // Make sure we avoid a null-pointer error.

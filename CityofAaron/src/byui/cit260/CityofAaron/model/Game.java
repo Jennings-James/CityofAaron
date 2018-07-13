@@ -28,16 +28,16 @@ public class Game implements Serializable {
     private int wheatHarvested;
     private double tithePaid;
 
+    public Game() {
+        // Empty constructor for JavaBeans
+    }
+
     public InventoryItem getInventory() {
         return inventory;
     }
 
     public void setInventory(InventoryItem inventory) {
         this.inventory = inventory;
-    }
-
-    public Game() {
-        // Empty constructor for JavaBeans
     }
 
     public Player getThePlayer() {
