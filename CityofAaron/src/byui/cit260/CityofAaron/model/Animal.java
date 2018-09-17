@@ -13,7 +13,7 @@ import java.util.Arrays;
  *
  * @author jennings
  */
-public class Animal extends InventoryItem {
+public class Animal {
 
     public Animal() {
         super();

@@ -130,8 +130,6 @@ public class ReportsMenuView extends ViewBase {
             this.console.println(game.getAnimals().get(i).getName() + "-"
                     + game.getAnimals().get(i).getAge());
         }
-        /* Animal oldestAnimal = findOldestAnimal();
-         this.console.println("The oldest animal in the Sotrehouse is  " + oldestAnimal);*/
         return null;
     }
 
@@ -143,7 +141,7 @@ public class ReportsMenuView extends ViewBase {
                 oldest = animal;
             }
         }
-        this.console.println("The oldest animal in the Sotrehouse is  " + oldest);
+        this.console.println("The oldest animals in the Sotrehouse are the " + oldest.getName());
         return oldest;
     }
 

@@ -68,7 +68,7 @@ public class BuyLandView extends ViewBase {
             ErrorView.display(this.getClass().getName(), "please enter a number.");
         }
         try {
-            acresBought = ManageCropsControl.sellLand(price, acresToBuy);
+            acresBought = ManageCropsControl.buyLand(price, acresToBuy);
         } catch (ManageCropsControlException ie) {
             ErrorView.display(this.getClass().getName(), ie.getMessage());
         }

@@ -27,27 +27,5 @@ public class Map implements Serializable {
 
     private Point currentLocaiton;
 
-    /*
-    public String getLocaiton() {
-        return locaiton;
-    }
-
-    public void setLocaiton(String locaiton) {
-        this.locaiton = locaiton;
-    }
-
-    public Point getCurrentLocaiton() {
-        return currentLocaiton;
-    }
-
-    public void setCurrentLocaiton(Point currentLocaiton) {
-        this.currentLocaiton = currentLocaiton;
-    }
-
-    @Override
-    public String toString() {
-        return "Map{" 
-                + "locaiton=" + locaiton + ", currentLocaiton=" + currentLocaiton + '}';
-    }
-     */
+  
 }
